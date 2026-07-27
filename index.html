@@ -82,34 +82,7 @@ input:focus{
 border-color:#c89d38;
 
 }
-.filtros{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:30px;
-}
 
-.filtros button{
-padding:10px 18px;
-background:#171717;
-border:1px solid #333;
-color:white;
-border-radius:30px;
-cursor:pointer;
-font-size:14px;
-transition:.25s;
-}
-
-.filtros button:hover{
-border-color:#c89d38;
-}
-
-.filtros button.activo{
-background:#c89d38;
-color:black;
-border-color:#c89d38;
-}
 #productos{
 
 display:grid;
@@ -259,26 +232,6 @@ CATÁLOGO OFICIAL
 id="buscar"
 placeholder="🔍 Buscar perfume...">
 
-<div class="filtros">
-
-<button class="activo" onclick="filtrar('todos',this)">
-Todos
-</button>
-
-<button onclick="filtrar('disponible',this)">
-Disponibles
-</button>
-
-<button onclick="filtrar('pedido',this)">
-A pedido
-</button>
-
-<button onclick="filtrar('sin stock',this)">
-Sin stock
-</button>
-
-</div>
-
 <div id="productos"></div>
 
 <script>
@@ -370,36 +323,24 @@ href="https://wa.me/5493417830300?text=${encodeURIComponent("Hola! Quiero consul
 
 }
 
-let filtroActual = "todos";
+document.getElementById("buscar").addEventListener("keyup",e=>{
 
-function actualizar(){
+const texto=e.target.value.toLowerCase();
 
-    const texto = document.getElementById("buscar").value.toLowerCase();
+mostrar(
 
-    let lista = perfumes.filter(p =>
-        (p.perfume || "").toLowerCase().includes(texto)
-    );
+perfumes.filter(p=>
 
-    if(filtroActual != "todos"){
-        lista = lista.filter(p =>
-            (p.stock || "").toLowerCase().includes(filtroActual)
-        );
-    }
+(p.perfume || "").toLowerCase().includes(texto)
 
-    mostrar(lista);
-}
+)
 
-function filtrar(tipo, btn){
+);
 
-    filtroActual = tipo;
+});
 
-    document.querySelectorAll(".filtros button").forEach(b =>
-        b.classList.remove("activo")
-    );
+</script>
 
-    btn.classList.add("activo");
+</body>
 
-    actualizar();
-}
-
-document.getElementById("buscar").addEventListener("keyup", actualizar);
+</html>
