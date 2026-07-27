@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NERÓS</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+padding:40px;
+}
+
+h1{
+text-align:center;
+font-size:42px;
+margin-bottom:30px;
+letter-spacing:5px;
+}
+
+input{
+width:100%;
+max-width:500px;
+display:block;
+margin:auto;
+padding:15px;
+border-radius:12px;
+border:none;
+font-size:18px;
+margin-bottom:40px;
+}
+
+#productos{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1b1b1b;
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+.info{
+padding:20px;
+}
+
+.nombre{
+font-size:20px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.precio{
+font-size:22px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.stock{
+margin-bottom:20px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#d4af37;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>NERÓS</h1>
+
+<input id="buscar" placeholder="Buscar perfume...">
+
+<div id="productos"></div>
+
+<script>
+
+const API="https://script.google.com/macros/s/AKfycbxggaW4cZ6PoXBNKL5C8M1KeXuZR6mBg88mmV_EQsSFXTE6mk9dFnx6ojiKrEJVEI6uhQ/exec";
+
+fetch(API)
+.then(r=>r.json())
+.then(data=>{
+
+const cont=document.getElementById("productos");
+
+function mostrar(lista){
+
+cont.innerHTML="";
+
+lista.forEach(p=>{
+
+cont.innerHTML+=`
+<div class="card">
+
+<img src="${p.Foto}">
+
+<div class="info">
+
+<div class="nombre">${p.Nombre}</div>
+
+<div class="precio">$${p.Precio}</div>
+
+<div class="stock">${Number(p.Stock)>0 ? "🟢 Disponible":"🔴 Agotado"}</div>
+
+<button onclick="window.open('https://wa.me/')">
+Consultar
+</button>
+
+</div>
+
+</div>
+`;
+
+});
+
+}
+
+mostrar(data);
+
+document.getElementById("buscar").addEventListener("input",e=>{
+
+const t=e.target.value.toLowerCase();
+
+mostrar(data.filter(p=>String(p.Nombre).toLowerCase().includes(t)));
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
