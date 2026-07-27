@@ -1,105 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="logo">
-    <img src="logo%20neros.png" alt="NERÓS">
-    <p>CATÁLOGO OFICIAL</p>
-</div>
+<title>NERÓS - Catálogo Oficial</title>
 
 <style>
 
-body{
-margin:0;
-padding:30px;
-background:#0d0d0d;
-font-family:Arial,Helvetica,sans-serif;
-color:white;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1{
-text-align:center;
-margin-bottom:30px;
+body{
+    background:#0d0d0d;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
+    padding:30px;
 }
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    width:240px;
+    max-width:90%;
+    margin:auto;
+    display:block;
+}
+
+.subtitulo{
+    margin-top:10px;
+    color:#d4af37;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:bold;
+}
+
+/* BUSCADOR */
 
 input{
-width:100%;
-padding:15px;
-font-size:18px;
-border-radius:10px;
-border:none;
-margin-bottom:30px;
-box-sizing:border-box;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    margin-bottom:35px;
+    outline:none;
 }
+
+/* PRODUCTOS */
 
 #productos{
-
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-gap:20px;
-
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:22px;
 }
 
+/* TARJETA */
+
 .card{
+    background:#1b1b1b;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+    box-shadow:0 0 18px rgba(0,0,0,.45);
+}
 
-background:#1b1b1b;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 0 15px rgba(0,0,0,.4);
-
+.card:hover{
+    transform:translateY(-6px);
 }
 
 .card img{
-
-width:100%;
-height:260px;
-object-fit:cover;
-background:#222;
-
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    background:#222;
 }
 
 .info{
-
-padding:15px;
-
+    padding:18px;
 }
 
 .nombre{
-
-font-size:18px;
-font-weight:bold;
-
+    font-size:18px;
+    font-weight:bold;
+    min-height:48px;
 }
 
 .precio{
-
-margin-top:10px;
-font-size:22px;
-color:#ffcc66;
-
+    margin-top:12px;
+    font-size:28px;
+    color:#ffcc66;
+    font-weight:bold;
 }
 
 .stock{
-
-margin-top:10px;
-font-size:14px;
-
+    margin-top:12px;
+    font-size:15px;
+    opacity:.9;
 }
 
+/* BOTON */
+
 .whatsapp{
+    display:block;
+    margin-top:18px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    padding:13px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.2s;
+}
 
-display:block;
-margin-top:15px;
-text-align:center;
-background:#25D366;
-color:white;
-padding:12px;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-
+.whatsapp:hover{
+    background:#1ebe5d;
 }
 
 </style>
@@ -108,11 +134,19 @@ font-weight:bold;
 
 <body>
 
-<h1>NERÓS</h1>
+<div class="header">
+
+<img src="logo%20neros.png" class="logo" alt="NERÓS">
+
+<div class="subtitulo">
+CATÁLOGO OFICIAL
+</div>
+
+</div>
 
 <input
 id="buscar"
-placeholder="Buscar perfume...">
+placeholder="🔍 Buscar perfume...">
 
 <div id="productos"></div>
 
@@ -123,14 +157,12 @@ const API="https://script.google.com/macros/s/AKfycbwuMOgpsxiDOrk14N85W25JCYiRmQ
 let perfumes=[];
 
 fetch(API)
-
 .then(r=>r.json())
-
 .then(data=>{
 
-perfumes=data;
+    perfumes=data;
 
-mostrar(data);
+    mostrar(data);
 
 });
 
@@ -168,13 +200,12 @@ ${p.stock}
 
 </div>
 
-<a class="whatsapp"
-
+<a
+class="whatsapp"
 target="_blank"
-
 href="https://wa.me/5493410000000?text=Hola%20quiero%20consultar%20por%20${encodeURIComponent(p.perfume)}">
 
-Consultar
+Consultar por WhatsApp
 
 </a>
 
@@ -188,17 +219,15 @@ Consultar
 
 }
 
-document.getElementById("buscar")
+document.getElementById("buscar").addEventListener("keyup",e=>{
 
-.addEventListener("keyup",e=>{
-
-const t=e.target.value.toLowerCase();
+const texto=e.target.value.toLowerCase();
 
 mostrar(
 
 perfumes.filter(p=>
 
-p.perfume.toLowerCase().includes(t)
+p.perfume.toLowerCase().includes(texto)
 
 )
 
