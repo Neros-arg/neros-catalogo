@@ -116,6 +116,29 @@ overflow-wrap:anywhere;
 }
 
 .precio{
+  .precio-anterior{
+
+font-size:18px;
+color:#9d9d9d;
+text-decoration:line-through;
+margin-top:10px;
+
+}
+
+.descuento{
+
+margin-top:8px;
+font-size:12px;
+font-weight:bold;
+color:#3ddc84;
+line-height:1.4;
+background:rgba(61,220,132,.12);
+border:1px solid rgba(61,220,132,.35);
+padding:6px;
+border-radius:8px;
+text-align:center;
+
+}
 margin-top:12px;
 font-size:25px;
 font-weight:bold;
@@ -406,8 +429,17 @@ loading="lazy">
 ${p.perfume}
 </div>
 
-<div class="precio">
+<div class="precio-anterior">
 $ ${precioListaFormateado}
+</div>
+
+<div class="precio">
+💸 $ ${precioEfectivoFormateado}
+</div>
+
+<div class="descuento">
+10% OFF abonando por<br>
+Transferencia o Efectivo
 </div>
 
 <div class="stock ${claseStock}">
