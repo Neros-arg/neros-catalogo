@@ -8,6 +8,7 @@
 
 <title>NERÓS | Catálogo Oficial</title>
 <link rel="icon" type="image/png" href="favicon.png">
+
 <style>
 
 *{
@@ -278,6 +279,37 @@ claseStock="sinstock";
 
 }
 
+const precioLista=Number(p.precio) || 0;
+
+const precioEfectivo=precioLista*0.90;
+
+const precioListaFormateado=precioLista.toLocaleString("es-AR",{
+minimumFractionDigits:0,
+maximumFractionDigits:0
+});
+
+const precioEfectivoFormateado=precioEfectivo.toLocaleString("es-AR",{
+minimumFractionDigits:0,
+maximumFractionDigits:0
+});
+
+const mensajeWhatsApp=`Hola NERÓS 👋✨
+
+Quiero consultar por este perfume:
+
+🧴 ${p.perfume}
+
+💳 Precio de lista: $${precioListaFormateado}
+
+💵 Efectivo o transferencia:
+$${precioEfectivoFormateado}
+
+🏷️ 10% de descuento
+
+📦 Estado: ${p.stock}
+
+¿Me confirmás disponibilidad? Muchas gracias 🙌`;
+
 cont.innerHTML+=`
 
 <div class="card">
@@ -294,7 +326,7 @@ ${p.perfume}
 
 <div class="precio">
 
-$ ${Number(p.precio).toLocaleString("es-AR")}
+$ ${precioListaFormateado}
 
 </div>
 
@@ -307,7 +339,7 @@ ${p.stock}
 <a
 class="whatsapp"
 target="_blank"
-href="https://wa.me/5493417830300?text=${encodeURIComponent("Hola! Quiero consultar por " + p.perfume)}">
+href="https://wa.me/5493417830300?text=${encodeURIComponent(mensajeWhatsApp)}">
 
 💬 Consultar por WhatsApp
 
