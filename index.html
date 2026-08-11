@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NERÓS | Catálogo Oficial</title>
+
 <link rel="icon" type="image/png" href="favicon.png">
 
 <style>
@@ -18,6 +19,7 @@ box-sizing:border-box;
 }
 
 body{
+
 background:
 linear-gradient(rgba(8,8,8,.82),rgba(8,8,8,.82)),
 url("fondo.png");
@@ -28,293 +30,1185 @@ background-repeat:no-repeat;
 background-attachment:fixed;
 
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
 color:white;
+
 padding:30px;
+
+padding-bottom:100px;
+
 }
 
+
+/* =========================
+HEADER
+========================= */
+
 .header{
+
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-margin-bottom:35px;
+
+margin-bottom:25px;
+
 }
 
 .logo{
+
 width:180px;
 height:auto;
+
 display:block;
+
 }
 
 .subtitulo{
+
 margin-top:10px;
+
 color:#c89d38;
+
 font-size:13px;
+
 letter-spacing:4px;
+
 font-weight:bold;
+
 text-transform:uppercase;
+
 }
 
-input{
-width:100%;
-max-width:700px;
-margin:0 auto 35px;
-display:block;
-padding:16px;
-background:#181818;
-color:white;
-border:1px solid #333;
+
+/* =========================
+MODOS
+========================= */
+
+.modos{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+margin:0 auto 25px;
+
+max-width:500px;
+
+}
+
+.modo{
+
+flex:1;
+
+padding:13px 10px;
+
 border-radius:12px;
+
+border:1px solid #333;
+
+background:#181818;
+
+color:#aaa;
+
+font-size:14px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.modo:hover{
+
+border-color:#c89d38;
+
+color:white;
+
+}
+
+.modo.activo{
+
+background:#c89d38;
+
+color:#111;
+
+border-color:#c89d38;
+
+}
+
+
+/* =========================
+BUSCADOR
+========================= */
+
+input{
+
+width:100%;
+
+max-width:700px;
+
+margin:0 auto 35px;
+
+display:block;
+
+padding:16px;
+
+background:#181818;
+
+color:white;
+
+border:1px solid #333;
+
+border-radius:12px;
+
 font-size:16px;
+
 outline:none;
+
 }
 
 input:focus{
+
 border-color:#c89d38;
+
 }
 
+
+/* =========================
+PRODUCTOS
+========================= */
+
 #productos{
+
 display:grid;
+
 grid-template-columns:repeat(6,minmax(0,1fr));
+
 gap:18px;
+
 max-width:1800px;
+
 margin:0 auto;
+
 }
 
 .card{
+
 background:#171717;
+
 border-radius:18px;
+
 overflow:hidden;
+
 border:1px solid #262626;
+
 transition:.25s;
+
 min-width:0;
+
 }
 
 .card:hover{
+
 transform:translateY(-6px);
+
 border-color:#c89d38;
+
 }
 
 .card img{
+
 width:100%;
+
 height:270px;
+
 object-fit:cover;
+
 background:#222;
+
 display:block;
+
 }
 
+
+/* =========================
+INFO
+========================= */
+
 .info{
+
 padding:15px;
+
 }
 
 .nombre{
+
 font-size:16px;
+
 font-weight:bold;
+
 line-height:1.35;
+
 min-height:65px;
+
 overflow-wrap:anywhere;
+
+}
+
+
+/* =========================
+PRECIOS PARTICULAR
+========================= */
+
+.precio-anterior{
+
+font-size:18px;
+
+color:#9d9d9d;
+
+text-decoration:line-through;
+
+margin-top:10px;
+
 }
 
 .precio{
-  .precio-anterior{
 
-font-size:18px;
-color:#9d9d9d;
-text-decoration:line-through;
-margin-top:10px;
+margin-top:12px;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#ffcc66;
 
 }
 
 .descuento{
 
 margin-top:8px;
+
 font-size:12px;
+
 font-weight:bold;
+
 color:#3ddc84;
+
 line-height:1.4;
+
 background:rgba(61,220,132,.12);
+
 border:1px solid rgba(61,220,132,.35);
+
 padding:6px;
+
 border-radius:8px;
+
 text-align:center;
 
 }
+
+
+/* =========================
+PRECIOS MAYORISTA
+========================= */
+
+.mayorista-titulo{
+
 margin-top:12px;
-font-size:25px;
+
+font-size:13px;
+
 font-weight:bold;
-color:#ffcc66;
+
+color:#c89d38;
+
 }
 
-.stock{
-margin-top:12px;
-font-size:14px;
+.mayorista-precio{
+
+margin-top:5px;
+
+font-size:23px;
+
 font-weight:bold;
+
+color:#ffcc66;
+
+}
+
+.mayorista-info{
+
+margin-top:5px;
+
+font-size:11px;
+
+color:#999;
+
+line-height:1.5;
+
+}
+
+
+/* =========================
+STOCK
+========================= */
+
+.stock{
+
+margin-top:12px;
+
+font-size:14px;
+
+font-weight:bold;
+
 min-height:20px;
+
 }
 
 .stock.disponible{
+
 color:#3ddc84;
+
 }
 
 .stock.apedido{
+
 color:#f5c542;
+
 }
 
 .stock.sinstock{
+
 color:#ff5a5a;
+
 }
 
+
+/* =========================
+WHATSAPP PARTICULAR
+========================= */
+
 .whatsapp{
+
 display:block;
+
 margin-top:16px;
+
 padding:12px 8px;
+
 background:#25D366;
+
 border-radius:10px;
+
 text-align:center;
+
 text-decoration:none;
+
 color:white;
+
 font-size:14px;
+
 font-weight:bold;
+
 transition:.2s;
+
 }
 
 .whatsapp:hover{
+
 background:#1fb85a;
+
 }
+
+
+/* =========================
+BOTÓN AGREGAR
+========================= */
+
+.agregar{
+
+display:block;
+
+width:100%;
+
+margin-top:14px;
+
+padding:12px 8px;
+
+background:#c89d38;
+
+border:none;
+
+border-radius:10px;
+
+text-align:center;
+
+color:#111;
+
+font-size:13px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.agregar:hover{
+
+background:#e0b653;
+
+}
+
+.agregar:disabled{
+
+background:#333;
+
+color:#777;
+
+cursor:not-allowed;
+
+}
+
+
+/* =========================
+CANTIDAD
+========================= */
+
+.cantidad{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+margin-top:14px;
+
+}
+
+.cantidad button{
+
+width:35px;
+
+height:35px;
+
+border-radius:8px;
+
+border:1px solid #444;
+
+background:#222;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+
+.cantidad button:hover{
+
+border-color:#c89d38;
+
+}
+
+.cantidad span{
+
+min-width:35px;
+
+text-align:center;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+
+/* =========================
+BARRA CARRITO
+========================= */
+
+.carrito-barra{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+right:0;
+
+z-index:1000;
+
+background:rgba(15,15,15,.97);
+
+border-top:1px solid #333;
+
+padding:12px 20px;
+
+display:none;
+
+box-shadow:0 -5px 20px rgba(0,0,0,.4);
+
+}
+
+.carrito-contenido{
+
+max-width:1000px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:20px;
+
+}
+
+.carrito-info{
+
+font-size:14px;
+
+}
+
+.carrito-info strong{
+
+color:#ffcc66;
+
+}
+
+.carrito-boton{
+
+background:#25D366;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+padding:13px 20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+font-size:14px;
+
+}
+
+.carrito-boton:hover{
+
+background:#1fb85a;
+
+}
+
+
+/* =========================
+MODAL
+========================= */
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+z-index:2000;
+
+inset:0;
+
+background:rgba(0,0,0,.75);
+
+padding:20px;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.modal.activo{
+
+display:flex;
+
+}
+
+.modal-contenido{
+
+width:100%;
+
+max-width:600px;
+
+max-height:90vh;
+
+overflow-y:auto;
+
+background:#171717;
+
+border:1px solid #333;
+
+border-radius:18px;
+
+padding:22px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.6);
+
+}
+
+.modal-header{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-bottom:20px;
+
+}
+
+.modal-header h2{
+
+font-size:20px;
+
+}
+
+.cerrar{
+
+background:none;
+
+border:none;
+
+color:#aaa;
+
+font-size:28px;
+
+cursor:pointer;
+
+}
+
+.cerrar:hover{
+
+color:white;
+
+}
+
+
+/* =========================
+ITEM CARRITO
+========================= */
+
+.item-carrito{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:12px;
+
+padding:14px 0;
+
+border-bottom:1px solid #292929;
+
+}
+
+.item-nombre{
+
+flex:1;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+.item-precio{
+
+font-size:13px;
+
+color:#aaa;
+
+margin-top:4px;
+
+}
+
+.item-subtotal{
+
+font-size:12px;
+
+color:#c89d38;
+
+margin-top:4px;
+
+}
+
+.item-controles{
+
+display:flex;
+
+align-items:center;
+
+gap:7px;
+
+}
+
+.item-controles button{
+
+width:30px;
+
+height:30px;
+
+border:1px solid #444;
+
+background:#222;
+
+color:white;
+
+border-radius:7px;
+
+cursor:pointer;
+
+}
+
+.item-controles span{
+
+min-width:25px;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+
+/* =========================
+RESUMEN
+========================= */
+
+.carrito-resumen{
+
+margin-top:20px;
+
+padding-top:15px;
+
+border-top:1px solid #444;
+
+}
+
+.resumen-linea{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:8px;
+
+font-size:14px;
+
+}
+
+.resumen-total{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:12px;
+
+padding-top:12px;
+
+border-top:1px solid #333;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#ffcc66;
+
+}
+
+.proximo-nivel{
+
+margin-top:15px;
+
+padding:10px;
+
+border-radius:10px;
+
+background:rgba(200,157,56,.10);
+
+border:1px solid rgba(200,157,56,.25);
+
+color:#ddd;
+
+font-size:12px;
+
+text-align:center;
+
+line-height:1.5;
+
+}
+
+
+/* =========================
+ENVIAR WHATSAPP
+========================= */
+
+.enviar-whatsapp{
+
+width:100%;
+
+margin-top:18px;
+
+padding:15px;
+
+background:#25D366;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:15px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.enviar-whatsapp:hover{
+
+background:#1fb85a;
+
+}
+
+
+/* =========================
+CARRITO VACÍO
+========================= */
+
+.vacio{
+
+text-align:center;
+
+color:#888;
+
+padding:30px 10px;
+
+}
+
+
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:1450px){
 
 #productos{
+
 grid-template-columns:repeat(5,minmax(0,1fr));
+
 }
 
 }
+
 
 @media(max-width:1150px){
 
 #productos{
+
 grid-template-columns:repeat(4,minmax(0,1fr));
+
 }
 
 }
+
 
 @media(max-width:900px){
 
 #productos{
+
 grid-template-columns:repeat(3,minmax(0,1fr));
+
 gap:14px;
+
 }
 
 .card img{
+
 height:250px;
+
 }
 
 }
+
 
 @media(max-width:600px){
 
 body{
+
 padding:10px;
+
+padding-bottom:90px;
+
 }
 
 .header{
-margin-bottom:22px;
+
+margin-bottom:18px;
+
 }
 
 .logo{
+
 width:145px;
+
 }
 
 .subtitulo{
+
 font-size:11px;
+
 letter-spacing:3px;
+
+}
+
+.modos{
+
+gap:7px;
+
+margin-bottom:18px;
+
+}
+
+.modo{
+
+font-size:11px;
+
+padding:11px 5px;
+
 }
 
 input{
+
 margin-bottom:22px;
+
 padding:13px;
+
 font-size:14px;
+
 }
 
 #productos{
+
 grid-template-columns:repeat(2,minmax(0,1fr));
+
 gap:10px;
+
 }
 
 .card{
+
 border-radius:12px;
+
 }
 
 .card:hover{
+
 transform:none;
+
 }
 
 .card img{
+
 height:190px;
+
 }
 
 .info{
+
 padding:10px;
+
 }
 
 .nombre{
+
 font-size:13px;
+
 line-height:1.3;
+
 min-height:52px;
+
 }
 
 .precio{
+
 margin-top:8px;
+
 font-size:20px;
+
+}
+
+.precio-anterior{
+
+font-size:14px;
+
+}
+
+.mayorista-precio{
+
+font-size:18px;
+
 }
 
 .stock{
+
 margin-top:8px;
+
 font-size:12px;
+
 min-height:30px;
+
+}
+
+.agregar{
+
+margin-top:10px;
+
+padding:10px 5px;
+
+font-size:11px;
+
+}
+
+.cantidad button{
+
+width:30px;
+
+height:30px;
+
 }
 
 .whatsapp{
+
 margin-top:10px;
+
 padding:10px 5px;
+
 font-size:11px;
+
+}
+
+.carrito-contenido{
+
+gap:10px;
+
+}
+
+.carrito-info{
+
+font-size:12px;
+
+}
+
+.carrito-boton{
+
+padding:11px 12px;
+
+font-size:12px;
+
+}
+
+.modal{
+
+padding:10px;
+
+}
+
+.modal-contenido{
+
+padding:15px;
+
+}
+
+.item-carrito{
+
+align-items:flex-start;
+
 }
 
 }
+
 
 @media(max-width:360px){
 
 body{
+
 padding:7px;
+
 }
 
 #productos{
+
 gap:7px;
+
 }
 
 .card img{
+
 height:165px;
+
 }
 
 .info{
+
 padding:8px;
+
 }
 
 .nombre{
+
 font-size:12px;
+
 min-height:48px;
+
 }
 
 .precio{
+
 font-size:18px;
+
 }
 
 .stock{
+
 font-size:11px;
+
 }
 
 .whatsapp{
+
 font-size:10px;
+
 }
 
 }
@@ -323,11 +1217,20 @@ font-size:10px;
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+HEADER
+========================= -->
 
 <div class="header">
 
-<img src="logo%20neros.png" class="logo" alt="NERÓS">
+<img
+src="logo%20neros.png"
+class="logo"
+alt="NERÓS">
 
 <div class="subtitulo">
 CATÁLOGO OFICIAL
@@ -335,17 +1238,161 @@ CATÁLOGO OFICIAL
 
 </div>
 
+
+<!-- =========================
+MODOS
+========================= -->
+
+<div class="modos">
+
+<button
+id="modoParticular"
+class="modo activo"
+onclick="cambiarModo('particular')">
+
+🛍️ PARTICULAR
+
+</button>
+
+
+<button
+id="modoMayorista"
+class="modo"
+onclick="cambiarModo('mayorista')">
+
+📦 MAYORISTA
+
+</button>
+
+</div>
+
+
+<!-- =========================
+BUSCADOR
+========================= -->
+
 <input
 id="buscar"
 placeholder="🔍 Buscar perfume...">
 
+
+<!-- =========================
+PRODUCTOS
+========================= -->
+
 <div id="productos"></div>
+
+
+<!-- =========================
+BARRA CARRITO
+========================= -->
+
+<div
+id="carritoBarra"
+class="carrito-barra">
+
+<div class="carrito-contenido">
+
+<div
+id="carritoInfo"
+class="carrito-info">
+
+🛒 <strong>0</strong> unidades
+
+</div>
+
+
+<button
+class="carrito-boton"
+onclick="abrirCarrito()">
+
+VER PEDIDO
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+MODAL CARRITO
+========================= -->
+
+<div
+id="modalCarrito"
+class="modal">
+
+<div class="modal-contenido">
+
+
+<div class="modal-header">
+
+<h2>🛒 Pedido mayorista</h2>
+
+<button
+class="cerrar"
+onclick="cerrarCarrito()">
+
+×
+
+</button>
+
+</div>
+
+
+<div id="listaCarrito"></div>
+
+
+<div
+id="resumenCarrito"
+class="carrito-resumen">
+
+</div>
+
+
+<button
+class="enviar-whatsapp"
+onclick="enviarPedidoWhatsApp()">
+
+💬 ENVIAR PEDIDO POR WHATSAPP
+
+</button>
+
+
+</div>
+
+</div>
+
 
 <script>
 
+
+/* =========================================================
+CONFIGURACIÓN
+========================================================= */
+
 const API="https://script.google.com/macros/s/AKfycbwuMOgpsxiDOrk14N85W25JCYiRmQJQRV5bz3i6YNSSQK72yQ5TU0hCIZIpUxCQvbeneg/exec";
 
+const WHATSAPP="5493417830300";
+
+const MINIMO_MAYORISTA=10;
+
+
+/* =========================================================
+VARIABLES
+========================================================= */
+
 let perfumes=[];
+
+let carrito=[];
+
+let modoActual="particular";
+
+
+/* =========================================================
+CARGAR PRODUCTOS
+========================================================= */
 
 fetch(API)
 
@@ -357,19 +1404,96 @@ perfumes=data;
 
 mostrar(data);
 
+})
+
+.catch(error=>{
+
+console.error("Error cargando productos:",error);
+
+document.getElementById("productos").innerHTML=`
+
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+color:#ff5a5a;
+">
+
+No se pudieron cargar los productos.
+
+</div>
+
+`;
+
 });
+
+
+/* =========================================================
+CAMBIAR MODO
+========================================================= */
+
+function cambiarModo(modo){
+
+modoActual=modo;
+
+
+document
+.getElementById("modoParticular")
+.classList
+.toggle("activo",modo==="particular");
+
+
+document
+.getElementById("modoMayorista")
+.classList
+.toggle("activo",modo==="mayorista");
+
+
+/*
+Si pasamos a particular,
+vacíamos el carrito mayorista.
+*/
+
+if(modo==="particular"){
+
+carrito=[];
+
+actualizarCarrito();
+
+}
+
+
+mostrarFiltrado();
+
+}
+
+
+/* =========================================================
+MOSTRAR PRODUCTOS
+========================================================= */
 
 function mostrar(lista){
 
-const cont=document.getElementById("productos");
+const cont=
+document.getElementById("productos");
 
 cont.innerHTML="";
 
+
 lista.forEach(p=>{
+
+
+/* =========================
+STOCK
+========================= */
 
 let claseStock="";
 
-let textoStock=(p.stock || "").toString().toLowerCase();
+let textoStock=
+(p.stock || "")
+.toString()
+.toLowerCase();
+
 
 if(textoStock.includes("disponible")){
 
@@ -385,76 +1509,362 @@ claseStock="sinstock";
 
 }
 
-const precioLista=Number(p.precio) || 0;
 
-const precioEfectivo=precioLista*0.90;
+/* =========================
+PRECIOS
+========================= */
 
-const precioListaFormateado=precioLista.toLocaleString("es-AR",{
+const precioLista=
+Number(p.precio) || 0;
+
+
+const precioEfectivo=
+precioLista * 0.90;
+
+
+const precioMayorista10=
+Number(p.precioMayorista10) || 0;
+
+
+const precioMayorista20=
+Number(p.precioMayorista20) || 0;
+
+
+const precioMayorista30=
+Number(p.precioMayorista30) || 0;
+
+
+/* =========================
+FORMATO
+========================= */
+
+const formato={
+
 minimumFractionDigits:0,
-maximumFractionDigits:0
-});
 
-const precioEfectivoFormateado=precioEfectivo.toLocaleString("es-AR",{
-minimumFractionDigits:0,
 maximumFractionDigits:0
-});const mensajeWhatsApp=`Hola NERÓS 👋✨
+
+};
+
+
+const precioListaFormateado=
+precioLista.toLocaleString("es-AR",formato);
+
+
+const precioEfectivoFormateado=
+precioEfectivo.toLocaleString("es-AR",formato);
+
+
+const precioMayorista10Formateado=
+precioMayorista10.toLocaleString("es-AR",formato);
+
+
+const precioMayorista20Formateado=
+precioMayorista20.toLocaleString("es-AR",formato);
+
+
+const precioMayorista30Formateado=
+precioMayorista30.toLocaleString("es-AR",formato);
+
+
+/* =========================
+CANTIDAD
+========================= */
+
+const cantidadActual=
+obtenerCantidad(p.perfume);
+
+
+/* =========================
+PRECIO PARTICULAR
+========================= */
+
+let precioHTML="";
+
+
+if(modoActual==="particular"){
+
+precioHTML=`
+
+<div class="precio-anterior">
+
+$ ${precioListaFormateado}
+
+</div>
+
+
+<div class="precio">
+
+💸 $ ${precioEfectivoFormateado}
+
+</div>
+
+
+<div class="descuento">
+
+10% OFF abonando por<br>
+
+Transferencia o Efectivo
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+PRECIO MAYORISTA
+========================= */
+
+else{
+
+
+let precioMostrar=
+precioMayorista10Formateado;
+
+
+let textoNivel=
+"Desde 10 unidades";
+
+
+/*
+Si ya tiene productos en el carrito,
+mostrar el precio correspondiente
+al nivel alcanzado.
+*/
+
+const total=
+totalUnidades();
+
+
+if(total>=30){
+
+precioMostrar=
+precioMayorista30Formateado;
+
+textoNivel=
+"Precio mayorista 30+";
+
+}else if(total>=20){
+
+precioMostrar=
+precioMayorista20Formateado;
+
+textoNivel=
+"Precio mayorista 20+";
+
+}else{
+
+precioMostrar=
+precioMayorista10Formateado;
+
+textoNivel=
+"Precio mayorista 10+";
+
+}
+
+
+precioHTML=`
+
+<div class="mayorista-titulo">
+
+📦 ${textoNivel}
+
+</div>
+
+
+<div class="mayorista-precio">
+
+$ ${precioMostrar}
+
+</div>
+
+
+<div class="mayorista-info">
+
+10+ → $ ${precioMayorista10Formateado}<br>
+
+20+ → $ ${precioMayorista20Formateado}<br>
+
+30+ → $ ${precioMayorista30Formateado}
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+BOTÓN
+========================= */
+
+let botonHTML="";
+
+
+if(modoActual==="mayorista"){
+
+if(textoStock.includes("disponible")){
+
+if(cantidadActual>0){
+
+botonHTML=`
+
+<div class="cantidad">
+
+<button
+onclick="cambiarCantidad('${escapeHTML(p.perfume)}',-1)">
+
+−
+
+</button>
+
+
+<span>
+
+${cantidadActual}
+
+</span>
+
+
+<button
+onclick="cambiarCantidad('${escapeHTML(p.perfume)}',1)">
+
++
+
+</button>
+
+</div>
+
+`;
+
+}else{
+
+botonHTML=`
+
+<button
+
+class="agregar"
+
+onclick="agregarProducto('${escapeHTML(p.perfume)}')">
+
+➕ AGREGAR AL PEDIDO
+
+</button>
+
+`;
+
+}
+
+}else{
+
+botonHTML=`
+
+<button
+class="agregar"
+disabled>
+
+SIN STOCK
+
+</button>
+
+`;
+
+}
+
+}
+
+
+/* =========================
+WHATSAPP PARTICULAR
+========================= */
+
+else{
+
+const mensajeWhatsApp=`Hola NERÓS 👋✨
 
 Quiero consultar por este perfume:
 
 🧴 ${p.perfume}
 
-💳 Precio de lista: $${precioListaFormateado}
+💳 Precio de lista:
+$${precioListaFormateado}
 
 💵 Efectivo o transferencia:
 $${precioEfectivoFormateado}
 
 🏷️ 10% de descuento
 
-📦 Estado: ${p.stock}
+📦 Estado:
+${p.stock}
 
-¿Me confirmás disponibilidad? Muchas gracias 🙌`;
+¿Me confirmás disponibilidad?
+
+Muchas gracias 🙌`;
+
+
+botonHTML=`
+
+<a
+
+class="whatsapp"
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensajeWhatsApp)}">
+
+💬 Consultar por WhatsApp
+
+</a>
+
+`;
+
+}
+
+
+/* =========================
+CARD
+========================= */
 
 cont.innerHTML+=`
 
 <div class="card">
 
+
 <img
+
 src="${p.foto || 'https://placehold.co/600x800/222222/888888?text=NERÓS'}"
+
 alt="${p.perfume || 'Perfume NERÓS'}"
+
 loading="lazy">
+
 
 <div class="info">
 
+
 <div class="nombre">
-${p.perfume}
+
+${p.perfume || ""}
+
 </div>
 
-<div class="precio-anterior">
-$ ${precioListaFormateado}
-</div>
 
-<div class="precio">
-💸 $ ${precioEfectivoFormateado}
-</div>
+${precioHTML}
 
-<div class="descuento">
-10% OFF abonando por<br>
-Transferencia o Efectivo
-</div>
 
 <div class="stock ${claseStock}">
-${p.stock}
+
+${p.stock || ""}
+
 </div>
 
-<a
-class="whatsapp"
-target="_blank"
-rel="noopener noreferrer"
-href="https://wa.me/5493417830300?text=${encodeURIComponent(mensajeWhatsApp)}">
 
-💬 Consultar por WhatsApp
+${botonHTML}
 
-</a>
 
 </div>
 
@@ -466,19 +1876,706 @@ href="https://wa.me/5493417830300?text=${encodeURIComponent(mensajeWhatsApp)}">
 
 }
 
-document.getElementById("buscar").addEventListener("input",e=>{
 
-const texto=e.target.value.toLowerCase().trim();
+/* =========================================================
+OBTENER CANTIDAD
+========================================================= */
+
+function obtenerCantidad(perfume){
+
+const item=
+carrito.find(x=>x.perfume===perfume);
+
+return item ? item.cantidad : 0;
+
+}
+
+
+/* =========================================================
+AGREGAR PRODUCTO
+========================================================= */
+
+function agregarProducto(perfume){
+
+const producto=
+perfumes.find(p=>p.perfume===perfume);
+
+
+if(!producto){
+
+return;
+
+}
+
+
+const existente=
+carrito.find(x=>x.perfume===perfume);
+
+
+if(existente){
+
+existente.cantidad++;
+
+}else{
+
+carrito.push({
+
+perfume:producto.perfume,
+
+cantidad:1,
+
+precioMayorista10:
+Number(producto.precioMayorista10)||0,
+
+precioMayorista20:
+Number(producto.precioMayorista20)||0,
+
+precioMayorista30:
+Number(producto.precioMayorista30)||0
+
+});
+
+}
+
+
+actualizarCarrito();
+
+mostrarFiltrado();
+
+}
+
+
+/* =========================================================
+CAMBIAR CANTIDAD
+========================================================= */
+
+function cambiarCantidad(perfume,cambio){
+
+const item=
+carrito.find(x=>x.perfume===perfume);
+
+
+if(!item){
+
+if(cambio>0){
+
+agregarProducto(perfume);
+
+}
+
+return;
+
+}
+
+
+item.cantidad+=cambio;
+
+
+if(item.cantidad<=0){
+
+carrito=
+carrito.filter(x=>x.perfume!==perfume);
+
+}
+
+
+actualizarCarrito();
+
+mostrarFiltrado();
+
+}
+
+
+/* =========================================================
+TOTAL UNIDADES
+========================================================= */
+
+function totalUnidades(){
+
+return carrito.reduce(
+
+(total,item)=>
+total+item.cantidad,
+
+0
+
+);
+
+}
+
+
+/* =========================================================
+PRECIO MAYORISTA SEGÚN TOTAL
+========================================================= */
+
+function obtenerPrecioMayorista(item,total){
+
+if(total>=30){
+
+return item.precioMayorista30;
+
+}
+
+if(total>=20){
+
+return item.precioMayorista20;
+
+}
+
+return item.precioMayorista10;
+
+}
+
+
+/* =========================================================
+ACTUALIZAR CARRITO
+========================================================= */
+
+function actualizarCarrito(){
+
+const unidades=
+totalUnidades();
+
+
+const barra=
+document.getElementById("carritoBarra");
+
+
+const info=
+document.getElementById("carritoInfo");
+
+
+if(unidades>0){
+
+barra.style.display="block";
+
+
+info.innerHTML=`
+
+🛒 <strong>${unidades}</strong> unidades
+
+`;
+
+}else{
+
+barra.style.display="none";
+
+}
+
+
+if(
+
+document
+.getElementById("modalCarrito")
+.classList
+.contains("activo")
+
+){
+
+renderCarrito();
+
+}
+
+}
+
+
+/* =========================================================
+FILTRAR
+========================================================= */
+
+function mostrarFiltrado(){
+
+const texto=
+document
+.getElementById("buscar")
+.value
+.toLowerCase()
+.trim();
+
 
 mostrar(
 
 perfumes.filter(p=>
 
-(p.perfume || "").toLowerCase().includes(texto)
+(p.perfume || "")
+.toLowerCase()
+.includes(texto)
 
 )
 
 );
+
+}
+
+
+/* =========================================================
+BUSCADOR
+========================================================= */
+
+document
+.getElementById("buscar")
+.addEventListener("input",()=>{
+
+mostrarFiltrado();
+
+});
+
+
+/* =========================================================
+ABRIR CARRITO
+========================================================= */
+
+function abrirCarrito(){
+
+if(carrito.length===0){
+
+return;
+
+}
+
+
+document
+.getElementById("modalCarrito")
+.classList
+.add("activo");
+
+
+renderCarrito();
+
+}
+
+
+/* =========================================================
+CERRAR CARRITO
+========================================================= */
+
+function cerrarCarrito(){
+
+document
+.getElementById("modalCarrito")
+.classList
+.remove("activo");
+
+}
+
+
+/* =========================================================
+RENDER CARRITO
+========================================================= */
+
+function renderCarrito(){
+
+const lista=
+document.getElementById("listaCarrito");
+
+
+const resumen=
+document.getElementById("resumenCarrito");
+
+
+if(carrito.length===0){
+
+lista.innerHTML=`
+
+<div class="vacio">
+
+Tu pedido está vacío.
+
+</div>
+
+`;
+
+resumen.innerHTML="";
+
+return;
+
+}
+
+
+const total=
+totalUnidades();
+
+
+let totalPedido=0;
+
+
+lista.innerHTML="";
+
+
+carrito.forEach(item=>{
+
+const precio=
+obtenerPrecioMayorista(item,total);
+
+
+const subtotal=
+precio*item.cantidad;
+
+
+totalPedido+=subtotal;
+
+
+lista.innerHTML+=`
+
+<div class="item-carrito">
+
+
+<div>
+
+<div class="item-nombre">
+
+${item.perfume}
+
+</div>
+
+
+<div class="item-precio">
+
+$ ${Math.round(precio).toLocaleString("es-AR")}
+
+por unidad
+
+</div>
+
+
+<div class="item-subtotal">
+
+Subtotal: $ ${Math.round(subtotal).toLocaleString("es-AR")}
+
+</div>
+
+</div>
+
+
+<div class="item-controles">
+
+
+<button
+
+onclick="cambiarCantidad('${escapeHTML(item.perfume)}',-1)">
+
+−
+
+</button>
+
+
+<span>
+
+${item.cantidad}
+
+</span>
+
+
+<button
+
+onclick="cambiarCantidad('${escapeHTML(item.perfume)}',1)">
+
++
+
+</button>
+
+
+</div>
+
+
+</div>
+
+`;
+
+});
+
+
+/* =========================
+SIGUIENTE NIVEL
+========================= */
+
+let siguienteNivel="";
+
+
+if(total<10){
+
+const faltan=10-total;
+
+
+siguienteNivel=`
+
+<div class="proximo-nivel">
+
+⚠️ Te faltan <strong>${faltan}</strong> unidades para alcanzar el mínimo mayorista de 10.
+
+</div>
+
+`;
+
+}else if(total<20){
+
+const faltan=20-total;
+
+
+siguienteNivel=`
+
+<div class="proximo-nivel">
+
+📦 Precio mayorista 10+ activado.
+
+Te faltan <strong>${faltan}</strong> unidades para desbloquear el precio de 20+.
+
+</div>
+
+`;
+
+}else if(total<30){
+
+const faltan=30-total;
+
+
+siguienteNivel=`
+
+<div class="proximo-nivel">
+
+🔥 Precio mayorista 20+ activado.
+
+Te faltan <strong>${faltan}</strong> unidades para desbloquear el mejor precio de 30+.
+
+</div>
+
+`;
+
+}else{
+
+siguienteNivel=`
+
+<div class="proximo-nivel">
+
+🔥 <strong>Mejor precio mayorista desbloqueado.</strong>
+
+Estás en el nivel de 30+ unidades.
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+RESUMEN
+========================= */
+
+if(total<10){
+
+resumen.innerHTML=`
+
+<div class="resumen-linea">
+
+<span>Unidades</span>
+
+<strong>${total}</strong>
+
+</div>
+
+
+${siguienteNivel}
+
+`;
+
+return;
+
+}
+
+
+const precioPromedio=
+totalPedido/total;
+
+
+resumen.innerHTML=`
+
+<div class="resumen-linea">
+
+<span>Unidades</span>
+
+<strong>${total}</strong>
+
+</div>
+
+
+<div class="resumen-linea">
+
+<span>Precio promedio</span>
+
+<strong>
+
+$ ${Math.round(precioPromedio).toLocaleString("es-AR")}
+
+</strong>
+
+</div>
+
+
+<div class="resumen-total">
+
+<span>TOTAL</span>
+
+<span>
+
+$ ${Math.round(totalPedido).toLocaleString("es-AR")}
+
+</span>
+
+</div>
+
+
+${siguienteNivel}
+
+`;
+
+}
+
+
+/* =========================================================
+ENVIAR WHATSAPP
+========================================================= */
+
+function enviarPedidoWhatsApp(){
+
+const total=
+totalUnidades();
+
+
+if(total<MINIMO_MAYORISTA){
+
+alert(
+
+`El pedido mayorista mínimo es de ${MINIMO_MAYORISTA} unidades.`
+
+);
+
+return;
+
+}
+
+
+let totalPedido=0;
+
+
+let mensaje=`Hola NERÓS 👋✨
+
+Quiero realizar un pedido MAYORISTA:
+
+📦 Cantidad total: ${total} unidades
+
+━━━━━━━━━━━━━━━
+DETALLE DEL PEDIDO
+━━━━━━━━━━━━━━━
+`;
+
+
+carrito.forEach(item=>{
+
+const precio=
+obtenerPrecioMayorista(item,total);
+
+
+const subtotal=
+precio*item.cantidad;
+
+
+totalPedido+=subtotal;
+
+
+mensaje+=`
+
+🧴 ${item.perfume}
+
+Cantidad: ${item.cantidad}
+
+Precio unitario:
+$${Math.round(precio).toLocaleString("es-AR")}
+
+Subtotal:
+$${Math.round(subtotal).toLocaleString("es-AR")}
+
+`;
+
+});
+
+
+let nivel="10+";
+
+
+if(total>=30){
+
+nivel="30+";
+
+}else if(total>=20){
+
+nivel="20+";
+
+}
+
+
+mensaje+=`
+
+━━━━━━━━━━━━━━━
+
+📊 Nivel mayorista: ${nivel}
+
+📦 Total de unidades: ${total}
+
+💰 TOTAL DEL PEDIDO:
+$${Math.round(totalPedido).toLocaleString("es-AR")}
+
+━━━━━━━━━━━━━━━
+
+Quedo atento para confirmar disponibilidad y coordinar el pedido.
+
+Gracias 🙌
+`;
+
+
+const url=
+`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+
+
+window.open(url,"_blank");
+
+}
+
+
+/* =========================================================
+ESCAPAR HTML
+========================================================= */
+
+function escapeHTML(text){
+
+return String(text)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+CERRAR MODAL TOCANDO AFUERA
+========================================================= */
+
+document
+.getElementById("modalCarrito")
+.addEventListener("click",function(e){
+
+if(e.target===this){
+
+cerrarCarrito();
+
+}
 
 });
 
