@@ -35,7 +35,7 @@ color:white;
 
 padding:30px;
 
-padding-bottom:100px;
+padding-bottom:110px;
 
 }
 
@@ -262,7 +262,7 @@ overflow-wrap:anywhere;
 
 
 /* =========================
-PRECIOS PARTICULAR
+PRECIOS
 ========================= */
 
 .precio-anterior{
@@ -315,7 +315,7 @@ text-align:center;
 
 
 /* =========================
-PRECIOS MAYORISTA
+MAYORISTA
 ========================= */
 
 .mayorista-titulo{
@@ -391,7 +391,7 @@ color:#ff5a5a;
 
 
 /* =========================
-WHATSAPP PARTICULAR
+WHATSAPP
 ========================= */
 
 .whatsapp{
@@ -428,7 +428,7 @@ background:#1fb85a;
 
 
 /* =========================
-BOTÓN AGREGAR
+AGREGAR
 ========================= */
 
 .agregar{
@@ -531,6 +531,89 @@ text-align:center;
 font-size:16px;
 
 font-weight:bold;
+
+}
+
+
+/* =========================
+PAGINACIÓN
+========================= */
+
+.paginacion{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:7px;
+
+margin:35px auto 20px;
+
+flex-wrap:wrap;
+
+}
+
+.pagina-btn{
+
+min-width:40px;
+
+height:40px;
+
+padding:0 12px;
+
+border-radius:9px;
+
+border:1px solid #333;
+
+background:#181818;
+
+color:#aaa;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.pagina-btn:hover{
+
+border-color:#c89d38;
+
+color:white;
+
+}
+
+.pagina-btn.activa{
+
+background:#c89d38;
+
+color:#111;
+
+border-color:#c89d38;
+
+}
+
+.pagina-btn:disabled{
+
+opacity:.35;
+
+cursor:not-allowed;
+
+}
+
+.paginacion-info{
+
+text-align:center;
+
+font-size:12px;
+
+color:#777;
+
+margin-bottom:20px;
 
 }
 
@@ -903,7 +986,7 @@ background:#1fb85a;
 
 
 /* =========================
-CARRITO VACÍO
+VACÍO
 ========================= */
 
 .vacio{
@@ -931,7 +1014,6 @@ grid-template-columns:repeat(5,minmax(0,1fr));
 
 }
 
-
 @media(max-width:1150px){
 
 #productos{
@@ -941,7 +1023,6 @@ grid-template-columns:repeat(4,minmax(0,1fr));
 }
 
 }
-
 
 @media(max-width:900px){
 
@@ -960,7 +1041,6 @@ height:250px;
 }
 
 }
-
 
 @media(max-width:600px){
 
@@ -1156,8 +1236,27 @@ align-items:flex-start;
 
 }
 
+.paginacion{
+
+margin-top:25px;
+
+gap:5px;
+
 }
 
+.pagina-btn{
+
+min-width:35px;
+
+height:35px;
+
+padding:0 8px;
+
+font-size:12px;
+
+}
+
+}
 
 @media(max-width:360px){
 
@@ -1284,6 +1383,13 @@ PRODUCTOS
 
 
 <!-- =========================
+PAGINACIÓN
+========================= -->
+
+<div id="paginacion"></div>
+
+
+<!-- =========================
 BARRA CARRITO
 ========================= -->
 
@@ -1378,6 +1484,10 @@ const WHATSAPP="5493417830300";
 
 const MINIMO_MAYORISTA=10;
 
+/* 30 PRODUCTOS POR PÁGINA */
+
+const PRODUCTOS_POR_PAGINA=30;
+
 
 /* =========================================================
 VARIABLES
@@ -1388,6 +1498,10 @@ let perfumes=[];
 let carrito=[];
 
 let modoActual="particular";
+
+let paginaActual=1;
+
+let productosFiltrados=[];
 
 
 /* =========================================================
@@ -1402,7 +1516,11 @@ fetch(API)
 
 perfumes=data;
 
-mostrar(data);
+productosFiltrados=data;
+
+paginaActual=1;
+
+mostrarPagina();
 
 })
 
@@ -1450,8 +1568,8 @@ document
 
 
 /*
-Si pasamos a particular,
-vacíamos el carrito mayorista.
+Si volvemos a particular,
+vaciar carrito mayorista.
 */
 
 if(modo==="particular"){
@@ -1463,7 +1581,80 @@ actualizarCarrito();
 }
 
 
-mostrarFiltrado();
+paginaActual=1;
+
+mostrarPagina();
+
+}
+
+
+/* =========================================================
+FILTRAR PRODUCTOS
+========================================================= */
+
+function filtrarProductos(){
+
+const texto=
+document
+.getElementById("buscar")
+.value
+.toLowerCase()
+.trim();
+
+
+productosFiltrados=
+perfumes.filter(p=>
+
+(p.perfume || "")
+.toLowerCase()
+.includes(texto)
+
+);
+
+
+paginaActual=1;
+
+mostrarPagina();
+
+}
+
+
+/* =========================================================
+BUSCADOR
+========================================================= */
+
+document
+.getElementById("buscar")
+.addEventListener("input",()=>{
+
+filtrarProductos();
+
+});
+
+
+/* =========================================================
+MOSTRAR PÁGINA
+========================================================= */
+
+function mostrarPagina(){
+
+const inicio=
+(paginaActual-1) *
+PRODUCTOS_POR_PAGINA;
+
+
+const fin=
+inicio +
+PRODUCTOS_POR_PAGINA;
+
+
+const productosPagina=
+productosFiltrados.slice(inicio,fin);
+
+
+mostrar(productosPagina);
+
+mostrarPaginacion();
 
 }
 
@@ -1478,6 +1669,28 @@ const cont=
 document.getElementById("productos");
 
 cont.innerHTML="";
+
+
+if(lista.length===0){
+
+cont.innerHTML=`
+
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:50px;
+color:#888;
+">
+
+No encontramos perfumes con esa búsqueda.
+
+</div>
+
+`;
+
+return;
+
+}
 
 
 lista.forEach(p=>{
@@ -1576,7 +1789,7 @@ obtenerCantidad(p.perfume);
 
 
 /* =========================
-PRECIO PARTICULAR
+PRECIO HTML
 ========================= */
 
 let precioHTML="";
@@ -1610,14 +1823,7 @@ Transferencia o Efectivo
 
 `;
 
-}
-
-
-/* =========================
-PRECIO MAYORISTA
-========================= */
-
-else{
+}else{
 
 
 let precioMostrar=
@@ -1627,12 +1833,6 @@ precioMayorista10Formateado;
 let textoNivel=
 "Desde 10 unidades";
 
-
-/*
-Si ya tiene productos en el carrito,
-mostrar el precio correspondiente
-al nivel alcanzado.
-*/
 
 const total=
 totalUnidades();
@@ -1744,7 +1944,6 @@ onclick="cambiarCantidad('${escapeHTML(p.perfume)}',1)">
 botonHTML=`
 
 <button
-
 class="agregar"
 
 onclick="agregarProducto('${escapeHTML(p.perfume)}')">
@@ -1773,14 +1972,8 @@ SIN STOCK
 
 }
 
-}
+}else{
 
-
-/* =========================
-WHATSAPP PARTICULAR
-========================= */
-
-else{
 
 const mensajeWhatsApp=`Hola NERÓS 👋✨
 
@@ -1807,11 +2000,8 @@ Muchas gracias 🙌`;
 botonHTML=`
 
 <a
-
 class="whatsapp"
-
 target="_blank"
-
 rel="noopener noreferrer"
 
 href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensajeWhatsApp)}">
@@ -1832,7 +2022,6 @@ CARD
 cont.innerHTML+=`
 
 <div class="card">
-
 
 <img
 
@@ -1871,6 +2060,199 @@ ${botonHTML}
 </div>
 
 `;
+
+});
+
+}
+
+
+/* =========================================================
+PAGINACIÓN
+========================================================= */
+
+function mostrarPaginacion(){
+
+const cont=
+document.getElementById("paginacion");
+
+
+const totalPaginas=
+Math.ceil(
+productosFiltrados.length /
+PRODUCTOS_POR_PAGINA
+);
+
+
+if(totalPaginas<=1){
+
+cont.innerHTML="";
+
+return;
+
+}
+
+
+let html=`<div class="paginacion">`;
+
+
+/* ANTERIOR */
+
+html+=`
+
+<button
+
+class="pagina-btn"
+
+onclick="cambiarPagina(${paginaActual-1})"
+
+${paginaActual===1 ? "disabled" : ""}>
+
+‹
+
+</button>
+
+`;
+
+
+/* =========================
+NÚMEROS
+========================= */
+
+for(let i=1;i<=totalPaginas;i++){
+
+/*
+Si hay muchas páginas,
+mostramos una cantidad razonable.
+*/
+
+if(
+
+totalPaginas>8 &&
+
+i!==1 &&
+
+i!==totalPaginas &&
+
+Math.abs(i-paginaActual)>2
+
+){
+
+if(i===2 || i===totalPaginas-1){
+
+html+=`<span style="color:#666;">...</span>`;
+
+}
+
+continue;
+
+}
+
+
+html+=`
+
+<button
+
+class="pagina-btn ${i===paginaActual ? "activa" : ""}"
+
+onclick="cambiarPagina(${i})">
+
+${i}
+
+</button>
+
+`;
+
+}
+
+
+/* SIGUIENTE */
+
+html+=`
+
+<button
+
+class="pagina-btn"
+
+onclick="cambiarPagina(${paginaActual+1})"
+
+${paginaActual===totalPaginas ? "disabled" : ""}>
+
+›
+
+</button>
+
+`;
+
+
+html+=`</div>`;
+
+
+/* INFORMACIÓN */
+
+const inicio=
+((paginaActual-1)*PRODUCTOS_POR_PAGINA)+1;
+
+
+const fin=
+Math.min(
+
+paginaActual*PRODUCTOS_POR_PAGINA,
+
+productosFiltrados.length
+
+);
+
+
+html+=`
+
+<div class="paginacion-info">
+
+Mostrando ${inicio}–${fin}
+
+de ${productosFiltrados.length} perfumes
+
+</div>
+
+`;
+
+
+cont.innerHTML=html;
+
+}
+
+
+/* =========================================================
+CAMBIAR PÁGINA
+========================================================= */
+
+function cambiarPagina(pagina){
+
+const totalPaginas=
+Math.ceil(
+
+productosFiltrados.length /
+PRODUCTOS_POR_PAGINA
+
+);
+
+
+if(pagina<1 || pagina>totalPaginas){
+
+return;
+
+}
+
+
+paginaActual=pagina;
+
+mostrarPagina();
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
 
 });
 
@@ -1940,7 +2322,7 @@ Number(producto.precioMayorista30)||0
 
 actualizarCarrito();
 
-mostrarFiltrado();
+mostrarPagina();
 
 }
 
@@ -1981,7 +2363,7 @@ carrito.filter(x=>x.perfume!==perfume);
 
 actualizarCarrito();
 
-mostrarFiltrado();
+mostrarPagina();
 
 }
 
@@ -2005,7 +2387,7 @@ total+item.cantidad,
 
 
 /* =========================================================
-PRECIO MAYORISTA SEGÚN TOTAL
+PRECIO MAYORISTA
 ========================================================= */
 
 function obtenerPrecioMayorista(item,total){
@@ -2077,48 +2459,6 @@ renderCarrito();
 }
 
 }
-
-
-/* =========================================================
-FILTRAR
-========================================================= */
-
-function mostrarFiltrado(){
-
-const texto=
-document
-.getElementById("buscar")
-.value
-.toLowerCase()
-.trim();
-
-
-mostrar(
-
-perfumes.filter(p=>
-
-(p.perfume || "")
-.toLowerCase()
-.includes(texto)
-
-)
-
-);
-
-}
-
-
-/* =========================================================
-BUSCADOR
-========================================================= */
-
-document
-.getElementById("buscar")
-.addEventListener("input",()=>{
-
-mostrarFiltrado();
-
-});
 
 
 /* =========================================================
@@ -2224,7 +2564,7 @@ lista.innerHTML+=`
 
 <div class="item-nombre">
 
-${item.perfume}
+${escapeHTML(item.perfume)}
 
 </div>
 
@@ -2240,7 +2580,8 @@ por unidad
 
 <div class="item-subtotal">
 
-Subtotal: $ ${Math.round(subtotal).toLocaleString("es-AR")}
+Subtotal:
+$ ${Math.round(subtotal).toLocaleString("es-AR")}
 
 </div>
 
@@ -2433,7 +2774,7 @@ ${siguienteNivel}
 
 
 /* =========================================================
-ENVIAR WHATSAPP
+WHATSAPP
 ========================================================= */
 
 function enviarPedidoWhatsApp(){
@@ -2564,7 +2905,7 @@ return String(text)
 
 
 /* =========================================================
-CERRAR MODAL TOCANDO AFUERA
+CERRAR MODAL AL TOCAR AFUERA
 ========================================================= */
 
 document
