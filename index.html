@@ -23,23 +23,17 @@ box-sizing:border-box;
 }
 
 :root{
-
 --negro:#070707;
 --negro2:#111111;
 --negro3:#181818;
-
 --dorado:#c89d38;
 --dorado-claro:#f0c866;
-
 --texto:#ffffff;
 --gris:#a0a0a0;
-
 --verde:#3ddc84;
 --amarillo:#f5c542;
 --rojo:#ff5a5a;
-
 --whatsapp:#25D366;
-
 }
 
 html{
@@ -47,21 +41,10 @@ scroll-behavior:smooth;
 }
 
 body{
-
 background:#080808;
-
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-Roboto,
-Arial,
-sans-serif;
-
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 color:white;
-
 padding-bottom:110px;
-
 }
 
 
@@ -70,138 +53,86 @@ NAVBAR
 ========================================================= */
 
 .navbar{
-
 height:125px;
-
 display:grid;
-
 grid-template-columns:1fr auto 1fr;
-
 align-items:center;
-
 padding:0 55px;
-
 background:#050505;
-
 border-bottom:1px solid #171717;
-
 position:relative;
-
 z-index:100;
-
 overflow:hidden;
-
 }
-
 
 .nav-left{
-
 display:flex;
-
 align-items:center;
-
 gap:18px;
-
 }
-
 
 .nav-icon{
-
 font-size:25px;
-
 color:#ddd;
-
 cursor:pointer;
-
 background:none;
-
 border:none;
-
 }
-
 
 .nav-center{
-
 height:100%;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 overflow:hidden;
-
 }
-
 
 .logo-nav{
-
 width:210px;
-
 max-width:90%;
-
 height:auto;
-
 display:block;
-
+transition:transform .35s ease,filter .35s ease;
 }
 
+.logo-nav:hover{
+transform:scale(1.04);
+filter:drop-shadow(0 0 15px rgba(200,157,56,.25));
+}
 
 .nav-right{
-
 display:flex;
-
 justify-content:flex-end;
-
 align-items:center;
-
 gap:18px;
-
 }
-
 
 .carrito-nav{
-
 position:relative;
-
 cursor:pointer;
-
 font-size:25px;
-
+transition:transform .2s ease;
 }
 
+.carrito-nav:hover{
+transform:scale(1.12);
+}
 
 .carrito-numero{
-
 position:absolute;
-
 top:-9px;
-
 right:-10px;
-
 min-width:19px;
-
 height:19px;
-
 padding:0 4px;
-
 border-radius:50px;
-
 background:var(--dorado);
-
 color:#111;
-
 font-size:10px;
-
 font-weight:bold;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 }
 
 
@@ -210,47 +141,27 @@ MENU
 ========================================================= */
 
 .menu{
-
 height:58px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 gap:42px;
-
 background:#080808;
-
 border-bottom:1px solid #141414;
-
 position:relative;
-
 z-index:90;
-
 }
-
 
 .menu a{
-
 color:white;
-
 text-decoration:none;
-
 font-size:13px;
-
 font-weight:600;
-
 transition:.2s;
-
 }
 
-
 .menu a:hover{
-
 color:var(--dorado);
-
 }
 
 
@@ -259,45 +170,31 @@ HERO
 ========================================================= */
 
 .hero{
-
 min-height:680px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 text-align:center;
-
 position:relative;
+overflow:hidden;
 
 background:
-
 linear-gradient(
 rgba(0,0,0,.28),
 rgba(0,0,0,.68)
 ),
-
 url("fondo.png");
 
 background-size:cover;
-
 background-position:center;
-
 }
 
-
 .hero::after{
-
 content:"";
-
 position:absolute;
-
 inset:0;
 
 background:
-
 linear-gradient(
 90deg,
 rgba(0,0,0,.55),
@@ -307,130 +204,194 @@ rgba(0,0,0,.55)
 );
 
 pointer-events:none;
-
 }
-
 
 .hero-contenido{
-
 position:relative;
-
 z-index:2;
-
 max-width:850px;
-
 padding:30px;
-
 }
-
 
 .hero-mini{
-
 color:var(--dorado-claro);
-
 letter-spacing:5px;
-
 font-size:12px;
-
 font-weight:800;
-
 margin-bottom:18px;
-
 }
-
 
 .hero h1{
-
 font-family:Georgia,"Times New Roman",serif;
-
 font-size:56px;
-
 line-height:1.08;
-
 font-weight:500;
-
 text-shadow:0 4px 30px rgba(0,0,0,.8);
-
 }
-
 
 .hero p{
-
 margin:18px auto 27px;
-
 max-width:650px;
-
 font-size:16px;
-
 line-height:1.6;
-
 color:#e5e5e5;
-
 }
-
 
 .hero-botones{
-
 display:flex;
-
 justify-content:center;
-
 gap:12px;
-
 flex-wrap:wrap;
-
 }
-
 
 .hero-btn{
-
 padding:14px 25px;
-
-border-radius:4px;
-
+border-radius:6px;
 text-decoration:none;
-
 font-size:13px;
-
 font-weight:800;
-
 transition:.2s;
-
+position:relative;
+overflow:hidden;
 }
-
 
 .hero-btn.principal{
-
 background:var(--dorado);
-
 color:#111;
-
 }
-
 
 .hero-btn.principal:hover{
-
 background:var(--dorado-claro);
-
 }
-
 
 .hero-btn.secundario{
-
 background:rgba(0,0,0,.5);
-
 border:1px solid rgba(255,255,255,.55);
-
 color:white;
+}
 
+.hero-btn.secundario:hover{
+border-color:var(--dorado);
+color:var(--dorado-claro);
+}
+
+.hero-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:70%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.22),
+transparent
+);
+
+transform:skewX(-20deg);
+transition:.7s;
+}
+
+.hero-btn:hover::before{
+left:150%;
 }
 
 
-.hero-btn.secundario:hover{
+/* =========================================================
+ANIMACIONES
+========================================================= */
 
-border-color:var(--dorado);
+@media(prefers-reduced-motion:no-preference){
 
-color:var(--dorado-claro);
+.hero{
+animation:heroBackgroundMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroBackgroundMove{
+
+0%{
+background-size:100% auto;
+background-position:center 48%;
+}
+
+100%{
+background-size:108% auto;
+background-position:center 52%;
+}
+
+}
+
+.hero-mini{
+opacity:0;
+animation:fadeDown .8s ease forwards;
+animation-delay:.15s;
+}
+
+.hero h1{
+opacity:0;
+transform:translateY(25px);
+animation:heroTitle 1s cubic-bezier(.2,.8,.2,1) forwards;
+animation-delay:.35s;
+}
+
+.hero p{
+opacity:0;
+transform:translateY(20px);
+animation:fadeUp .9s ease forwards;
+animation-delay:.65s;
+}
+
+.hero-botones{
+opacity:0;
+transform:translateY(15px);
+animation:fadeUp .8s ease forwards;
+animation-delay:.9s;
+}
+
+@keyframes heroTitle{
+
+0%{
+opacity:0;
+transform:translateY(28px) scale(.97);
+}
+
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(20px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes fadeDown{
+
+0%{
+opacity:0;
+transform:translateY(-12px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
 
 }
 
@@ -440,70 +401,130 @@ BENEFICIOS
 ========================================================= */
 
 .beneficios{
-
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
-
 max-width:1200px;
-
 margin:0 auto;
-
 border-left:1px solid #222;
-
 border-right:1px solid #222;
-
 }
-
 
 .beneficio{
-
 padding:28px 20px;
-
 text-align:center;
-
 background:#0d0d0d;
-
 border-right:1px solid #222;
-
+transition:transform .3s ease,background .3s ease;
 }
 
+.beneficio:hover{
+transform:translateY(-4px);
+background:#111;
+}
 
 .beneficio:last-child{
-
 border-right:none;
-
 }
-
 
 .beneficio-icono{
-
 font-size:25px;
-
 margin-bottom:8px;
-
 }
-
 
 .beneficio strong{
-
 display:block;
-
 font-size:13px;
-
 margin-bottom:5px;
-
 color:#eee;
+}
 
+.beneficio span{
+font-size:11px;
+color:#777;
 }
 
 
-.beneficio span{
+/* =========================================================
+MEDIOS DE PAGO
+========================================================= */
 
+.medios-pago{
+padding:55px 20px;
+background:#0b0b0b;
+border-top:1px solid #1d1d1d;
+border-bottom:1px solid #1d1d1d;
+text-align:center;
+}
+
+.medios-pago-titulo small{
+color:var(--dorado);
+font-size:10px;
+font-weight:800;
+letter-spacing:4px;
+}
+
+.medios-pago-titulo h3{
+font-family:Georgia,"Times New Roman",serif;
+font-size:32px;
+font-weight:500;
+margin-top:8px;
+}
+
+.medios-pago-titulo p{
+color:#888;
+font-size:13px;
+margin-top:7px;
+}
+
+.medios-pago-opciones{
+max-width:950px;
+margin:30px auto 0;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+}
+
+.medio-pago{
+min-height:120px;
+padding:20px 10px;
+background:#111;
+border:1px solid #252525;
+border-radius:16px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+transition:.25s ease;
+}
+
+.medio-pago:hover{
+transform:translateY(-4px);
+border-color:rgba(200,157,56,.65);
+background:#151515;
+}
+
+.medio-pago span{
+font-size:25px;
+margin-bottom:9px;
+}
+
+.medio-pago strong{
+font-size:12px;
+color:#eee;
+}
+
+.medio-pago small{
+font-size:10px;
+color:var(--dorado-claro);
+margin-top:5px;
+}
+
+.mercadopago-point{
+margin:22px auto 0;
 font-size:11px;
-
 color:#777;
-
 }
 
 
@@ -512,67 +533,41 @@ CATALOGO
 ========================================================= */
 
 .catalogo{
-
 padding:70px 25px 30px;
 
 background:
-
 radial-gradient(
 circle at top,
 rgba(200,157,56,.06),
 transparent 25%
 ),
-
 #090909;
-
 }
-
 
 .catalogo-cabeza{
-
 text-align:center;
-
 max-width:800px;
-
 margin:0 auto 35px;
-
 }
-
 
 .catalogo-cabeza small{
-
 color:var(--dorado);
-
 font-size:11px;
-
 letter-spacing:4px;
-
 font-weight:bold;
-
 }
-
 
 .catalogo-cabeza h2{
-
 font-family:Georgia,"Times New Roman",serif;
-
 font-size:40px;
-
 font-weight:500;
-
 margin-top:10px;
-
 }
 
-
 .catalogo-cabeza p{
-
 color:#888;
-
 font-size:13px;
-
 margin-top:10px;
-
 }
 
 
@@ -581,125 +576,69 @@ CONTROLES
 ========================================================= */
 
 .controles{
-
 max-width:950px;
-
 margin:0 auto 38px;
-
 padding:11px;
-
 background:rgba(18,18,18,.95);
-
 border:1px solid #292929;
-
 border-radius:15px;
-
 }
-
 
 .modos{
-
 display:flex;
-
 gap:8px;
-
 margin-bottom:9px;
-
 }
-
 
 .modo{
-
 flex:1;
-
 padding:13px;
-
 border-radius:9px;
-
 border:1px solid #333;
-
 background:#171717;
-
 color:#999;
-
 font-size:13px;
-
 font-weight:800;
-
 cursor:pointer;
-
 transition:.2s;
-
 }
-
 
 .modo:hover{
-
 border-color:var(--dorado);
-
 color:white;
-
 }
-
 
 .modo.activo{
-
 background:var(--dorado);
-
 border-color:var(--dorado);
-
 color:#111;
-
 }
-
 
 .buscar-wrap{
-
 position:relative;
-
 }
-
 
 .buscar-icono{
-
 position:absolute;
-
 left:15px;
-
 top:50%;
-
 transform:translateY(-50%);
-
 opacity:.6;
-
 }
-
 
 #buscar{
-
 width:100%;
-
 padding:14px 15px 14px 43px;
-
 background:#111;
-
 color:white;
-
 border:1px solid #2e2e2e;
-
 border-radius:9px;
-
 font-size:14px;
-
 outline:none;
-
 }
 
-
 #buscar:focus{
-
 border-color:var(--dorado);
-
 }
 
 
@@ -708,328 +647,205 @@ PRODUCTOS
 ========================================================= */
 
 #productos{
-
 display:grid;
-
-grid-template-columns:
-repeat(5,minmax(0,1fr));
-
+grid-template-columns:repeat(5,minmax(0,1fr));
 gap:18px;
-
 max-width:1600px;
-
 margin:auto;
-
 }
 
-
 .card{
-
 background:#141414;
-
 border:1px solid #242424;
-
-border-radius:18px;
-
+border-radius:20px;
 transition:.25s;
-
 overflow:hidden;
-
 position:relative;
-
 }
 
 .card:hover{
-
 border-color:rgba(200,157,56,.75);
-
 transform:translateY(-4px);
-
 box-shadow:0 18px 45px rgba(0,0,0,.45);
-
 }
-
 
 .imagen-producto{
-
 position:relative;
-
 aspect-ratio:1 / 1.12;
-
 overflow:hidden;
-
 background:#191919;
-
 }
-
 
 .card img{
-
 width:100%;
-
 height:100%;
-
 object-fit:cover;
-
 display:block;
-
-transition:.3s;
-
+transition:transform .6s cubic-bezier(.2,.8,.2,1);
 }
-
 
 .card:hover img{
-
-transform:scale(1.025);
-
+transform:scale(1.07);
 }
-
 
 .stock-badge{
-
 position:absolute;
-
 top:10px;
-
 left:10px;
-
 max-width:calc(100% - 20px);
-
 padding:7px 9px;
-
 border-radius:20px;
-
 font-size:10px;
-
 font-weight:bold;
-
 background:rgba(0,0,0,.80);
-
 backdrop-filter:blur(8px);
-
 border:1px solid #333;
-
 }
-
 
 .stock-badge.disponible{
-
 color:var(--verde);
-
 }
-
 
 .stock-badge.apedido{
-
 color:var(--amarillo);
-
 }
-
 
 .stock-badge.sinstock{
-
 color:var(--rojo);
-
 }
-
 
 .info{
-
 padding:15px;
-
 }
-
 
 .nombre{
-
 font-size:14px;
-
 font-weight:700;
-
 line-height:1.35;
-
 min-height:58px;
-
 }
-
 
 .precio-anterior{
-
 font-size:14px;
-
 color:#777;
-
 text-decoration:line-through;
-
 margin-top:10px;
-
 }
-
 
 .precio{
-
 font-size:24px;
-
 font-weight:900;
-
 color:var(--dorado-claro);
-
 margin-top:3px;
-
 }
-
 
 .descuento{
-
 margin-top:8px;
-
 padding:7px;
-
 text-align:center;
-
 font-size:10px;
-
 font-weight:bold;
-
 border:1px solid rgba(61,220,132,.25);
-
 background:rgba(61,220,132,.08);
-
 color:var(--verde);
-
+border-radius:8px;
 }
-
 
 .mayorista-titulo{
-
 font-size:11px;
-
 color:var(--dorado);
-
 font-weight:bold;
-
 margin-top:12px;
-
 }
-
 
 .mayorista-precio{
-
 font-size:23px;
-
 font-weight:900;
-
 color:var(--dorado-claro);
-
 margin-top:4px;
-
 }
-
 
 .mayorista-info{
-
 font-size:11px;
-
 line-height:1.6;
-
 color:#888;
-
 margin-top:8px;
-
 padding:8px;
-
 background:#0d0d0d;
-
 border:1px solid #222;
-
+border-radius:8px;
 }
-
 
 .agregar{
-
 width:100%;
-
 border:none;
-
+border-radius:10px;
 padding:12px;
-
 margin-top:13px;
-
 background:var(--dorado);
-
 color:#111;
-
 font-size:11px;
-
 font-weight:900;
-
 cursor:pointer;
-
 transition:.2s;
-
+position:relative;
+overflow:hidden;
 }
-
 
 .agregar:hover{
-
 background:var(--dorado-claro);
-
 }
-
 
 .agregar:disabled{
-
 background:#292929;
-
 color:#777;
-
 cursor:not-allowed;
-
 }
 
+.agregar::after{
+content:"";
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+110deg,
+transparent 20%,
+rgba(255,255,255,.22) 45%,
+transparent 70%
+);
+
+transform:translateX(-150%);
+transition:.65s;
+}
+
+.agregar:hover::after{
+transform:translateX(150%);
+}
 
 .cantidad{
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 gap:9px;
-
 margin-top:13px;
-
 }
-
 
 .cantidad button{
-
 width:35px;
-
 height:35px;
-
+border-radius:8px;
 background:#202020;
-
 border:1px solid #3a3a3a;
-
 color:white;
-
 font-size:18px;
-
 cursor:pointer;
-
 }
 
-
 .cantidad span{
-
 width:32px;
-
 text-align:center;
-
 font-weight:bold;
-
 }
 
 
@@ -1038,78 +854,45 @@ PAGINACION
 ========================================================= */
 
 .paginacion{
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 flex-wrap:wrap;
-
 gap:6px;
-
 margin:40px auto 15px;
-
 }
-
 
 .pagina-btn{
-
 min-width:40px;
-
 height:40px;
-
 padding:0 11px;
-
+border-radius:8px;
 border:1px solid #333;
-
 background:#151515;
-
 color:#999;
-
 cursor:pointer;
-
 }
-
 
 .pagina-btn.activa{
-
 background:var(--dorado);
-
 color:#111;
-
 border-color:var(--dorado);
-
 }
-
 
 .pagina-btn:hover{
-
 border-color:var(--dorado);
-
 color:white;
-
 }
-
 
 .pagina-btn:disabled{
-
 opacity:.3;
-
 cursor:not-allowed;
-
 }
 
-
 .paginacion-info{
-
 text-align:center;
-
 font-size:11px;
-
 color:#666;
-
 }
 
 
@@ -1118,79 +901,45 @@ CARRITO FLOTANTE
 ========================================================= */
 
 .carrito-barra{
-
 position:fixed;
-
 bottom:0;
-
 left:0;
-
 right:0;
-
 z-index:1000;
-
 display:none;
-
 background:rgba(8,8,8,.96);
-
 border-top:1px solid #333;
-
 backdrop-filter:blur(15px);
-
 padding:12px 20px;
-
 }
-
 
 .carrito-contenido{
-
 max-width:1000px;
-
 margin:auto;
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 gap:20px;
-
 }
-
 
 .carrito-info{
-
 font-size:13px;
-
 color:#ccc;
-
 }
-
 
 .carrito-info strong{
-
 color:var(--dorado-claro);
-
 }
 
-
 .carrito-boton{
-
 padding:13px 20px;
-
+border-radius:10px;
 background:var(--whatsapp);
-
 border:none;
-
 color:white;
-
 font-size:12px;
-
 font-weight:900;
-
 cursor:pointer;
-
 }
 
 
@@ -1199,323 +948,180 @@ MODAL
 ========================================================= */
 
 .modal{
-
 position:fixed;
-
 inset:0;
-
 z-index:3000;
-
 display:none;
-
 align-items:center;
-
 justify-content:center;
-
 padding:15px;
-
 background:rgba(0,0,0,.82);
-
 }
-
 
 .modal.activo{
-
 display:flex;
-
 }
-
 
 .modal-contenido{
-
 width:100%;
-
 max-width:650px;
-
 max-height:90vh;
-
 overflow-y:auto;
-
 padding:22px;
-
 background:#141414;
-
 border:1px solid #333;
-
+border-radius:18px;
 }
-
 
 .modal-header{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 margin-bottom:18px;
-
 }
-
 
 .modal-header h2{
-
 font-family:Georgia,serif;
-
 font-size:24px;
-
 font-weight:500;
-
 }
-
 
 .cerrar{
-
 border:none;
-
 background:none;
-
 color:#999;
-
 font-size:28px;
-
 cursor:pointer;
-
 }
-
 
 .pago-selector{
-
 display:none;
-
 grid-template-columns:1fr 1fr;
-
 gap:8px;
-
 margin-bottom:15px;
-
 }
-
 
 .pago-selector.activo{
-
 display:grid;
-
 }
-
 
 .pago-btn{
-
 padding:11px;
-
+border-radius:9px;
 background:#1c1c1c;
-
 border:1px solid #333;
-
 color:#aaa;
-
 font-size:11px;
-
 font-weight:bold;
-
 cursor:pointer;
-
 }
-
 
 .pago-btn.activo{
-
 border-color:var(--dorado);
-
 color:var(--dorado-claro);
-
 background:rgba(200,157,56,.1);
-
 }
-
 
 .item-carrito{
-
 display:flex;
-
 align-items:center;
-
 justify-content:space-between;
-
 gap:12px;
-
 padding:14px 0;
-
 border-bottom:1px solid #292929;
-
 }
-
 
 .item-nombre{
-
 font-size:13px;
-
 font-weight:bold;
-
 }
-
 
 .item-precio{
-
 font-size:11px;
-
 color:#999;
-
 margin-top:4px;
-
 }
-
 
 .item-subtotal{
-
 font-size:11px;
-
 color:var(--dorado);
-
 margin-top:4px;
-
 }
-
 
 .item-controles{
-
 display:flex;
-
 align-items:center;
-
 gap:7px;
-
 }
-
 
 .item-controles button{
-
 width:30px;
-
 height:30px;
-
+border-radius:7px;
 background:#222;
-
 border:1px solid #444;
-
 color:white;
-
 cursor:pointer;
-
 }
-
 
 .item-controles span{
-
 min-width:25px;
-
 text-align:center;
-
 }
-
 
 .carrito-resumen{
-
 margin-top:18px;
-
 padding-top:15px;
-
 border-top:1px solid #444;
-
 }
-
 
 .resumen-linea{
-
 display:flex;
-
 justify-content:space-between;
-
 font-size:13px;
-
 margin-bottom:8px;
-
 }
-
 
 .resumen-total{
-
 display:flex;
-
 justify-content:space-between;
-
 margin-top:12px;
-
 padding-top:12px;
-
 border-top:1px solid #333;
-
 font-size:21px;
-
 font-weight:900;
-
 color:var(--dorado-claro);
-
 }
-
 
 .proximo-nivel{
-
 margin-top:14px;
-
 padding:10px;
-
+border-radius:9px;
 font-size:11px;
-
 line-height:1.5;
-
 text-align:center;
-
 color:#ccc;
-
 border:1px solid rgba(200,157,56,.22);
-
 background:rgba(200,157,56,.07);
-
 }
-
 
 .enviar-whatsapp{
-
 width:100%;
-
 padding:15px;
-
 margin-top:18px;
-
+border-radius:10px;
 border:none;
-
 background:var(--whatsapp);
-
 color:white;
-
 font-size:13px;
-
 font-weight:900;
-
 cursor:pointer;
-
 }
 
-
 .enviar-whatsapp:disabled{
-
 background:#333;
-
 color:#777;
-
 cursor:not-allowed;
-
 }
 
 
@@ -1524,35 +1130,21 @@ FOOTER
 ========================================================= */
 
 .footer{
-
 padding:55px 20px 35px;
-
 background:#050505;
-
 border-top:1px solid #191919;
-
 text-align:center;
-
 }
-
 
 .footer img{
-
 width:150px;
-
 margin-bottom:17px;
-
 }
 
-
 .footer p{
-
 font-size:11px;
-
 color:#666;
-
 line-height:1.7;
-
 }
 
 
@@ -1563,10 +1155,7 @@ RESPONSIVE
 @media(max-width:1300px){
 
 #productos{
-
-grid-template-columns:
-repeat(4,minmax(0,1fr));
-
+grid-template-columns:repeat(4,minmax(0,1fr));
 }
 
 }
@@ -1575,16 +1164,11 @@ repeat(4,minmax(0,1fr));
 @media(max-width:950px){
 
 #productos{
-
-grid-template-columns:
-repeat(3,minmax(0,1fr));
-
+grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
 .navbar{
-
 padding:0 25px;
-
 }
 
 }
@@ -1593,249 +1177,169 @@ padding:0 25px;
 @media(max-width:700px){
 
 body{
-
 padding-bottom:95px;
-
 }
-
 
 .navbar{
-
 height:95px;
-
 padding:0 15px;
-
 grid-template-columns:1fr auto 1fr;
-
 }
-
 
 .logo-nav{
-
 width:160px;
-
 height:auto;
-
 }
-
 
 .nav-icon{
-
 font-size:22px;
-
 }
-
 
 .carrito-nav{
-
 font-size:22px;
-
 }
-
 
 .menu{
-
 gap:22px;
-
 height:48px;
-
 overflow-x:auto;
-
 justify-content:flex-start;
-
 padding:0 18px;
-
 }
-
 
 .menu a{
-
 white-space:nowrap;
-
 font-size:11px;
-
 }
-
 
 .hero{
-
 min-height:540px;
-
 background-position:center;
-
 }
-
 
 .hero-contenido{
-
 padding:22px;
-
 }
-
 
 .hero-mini{
-
 font-size:9px;
-
 letter-spacing:3px;
-
 }
-
 
 .hero h1{
-
 font-size:39px;
-
 }
-
 
 .hero p{
-
 font-size:13px;
-
 }
-
 
 .hero-btn{
-
 padding:12px 16px;
-
 font-size:11px;
-
 }
-
 
 .beneficios{
-
 grid-template-columns:1fr;
-
 }
-
 
 .beneficio{
-
 border-bottom:1px solid #222;
-
 border-right:none;
-
 padding:20px 15px;
-
 }
 
+.medios-pago{
+padding:40px 12px;
+}
+
+.medios-pago-titulo h3{
+font-size:27px;
+}
+
+.medios-pago-opciones{
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+margin-top:24px;
+}
+
+.medio-pago{
+min-height:105px;
+border-radius:14px;
+padding:15px 8px;
+}
+
+.medio-pago:last-child{
+grid-column:1 / -1;
+}
 
 .catalogo{
-
 padding:50px 10px 20px;
-
 }
-
 
 .catalogo-cabeza h2{
-
 font-size:32px;
-
 }
-
 
 #productos{
-
-grid-template-columns:
-repeat(2,minmax(0,1fr));
-
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:9px;
-
 }
 
+.card{
+border-radius:16px;
+}
 
 .info{
-
 padding:10px;
-
 }
-
 
 .nombre{
-
 font-size:12px;
-
 min-height:51px;
-
 }
-
 
 .precio{
-
 font-size:19px;
-
 }
-
 
 .precio-anterior{
-
 font-size:12px;
-
 }
-
 
 .mayorista-precio{
-
 font-size:18px;
-
 }
-
 
 .mayorista-info{
-
 font-size:9px;
-
 }
-
 
 .agregar{
-
 font-size:9px;
-
 padding:10px 4px;
-
 }
-
 
 .stock-badge{
-
 font-size:8px;
-
 padding:6px;
-
 }
-
 
 .carrito-barra{
-
 padding:9px;
-
 }
-
 
 .carrito-info{
-
 font-size:10px;
-
 }
-
 
 .carrito-boton{
-
 font-size:10px;
-
 padding:11px;
-
 }
 
-
 .modal-contenido{
-
 padding:14px;
-
 }
 
 }
@@ -1844,395 +1348,15 @@ padding:14px;
 @media(max-width:380px){
 
 .logo-nav{
-
 width:145px;
-
 }
 
 .hero h1{
-
 font-size:34px;
-
-}
-
-}
-/* =========================================================
-ANIMACIONES NERÓS
-========================================================= */
-
-/* Evita movimientos bruscos */
-@media (prefers-reduced-motion: no-preference) {
-
-
-/* ---------------------------------------------------------
-HERO - MOVIMIENTO DE FONDO
---------------------------------------------------------- */
-
-.hero{
-
-overflow:hidden;
-
-/*
-El fondo se mueve lentamente
-sin afectar el contenido
-*/
-
-animation:
-heroBackgroundMove
-18s ease-in-out infinite alternate;
-
-}
-
-
-/* Movimiento lento del fondo */
-
-@keyframes heroBackgroundMove{
-
-0%{
-
-background-size:100% auto;
-
-background-position:center 48%;
-
-}
-
-100%{
-
-background-size:108% auto;
-
-background-position:center 52%;
-
 }
 
 }
 
-
-/* ---------------------------------------------------------
-TEXTO SUPERIOR
---------------------------------------------------------- */
-
-.hero-mini{
-
-opacity:0;
-
-animation:
-fadeDown
-.8s ease forwards;
-
-animation-delay:.15s;
-
-}
-
-
-/* ---------------------------------------------------------
-TITULO PRINCIPAL
---------------------------------------------------------- */
-
-.hero h1{
-
-opacity:0;
-
-transform:translateY(25px);
-
-animation:
-heroTitle
-1s cubic-bezier(.2,.8,.2,1) forwards;
-
-animation-delay:.35s;
-
-}
-
-
-/* ---------------------------------------------------------
-DESCRIPCION
---------------------------------------------------------- */
-
-.hero p{
-
-opacity:0;
-
-transform:translateY(20px);
-
-animation:
-fadeUp
-.9s ease forwards;
-
-animation-delay:.65s;
-
-}
-
-
-/* ---------------------------------------------------------
-BOTONES
---------------------------------------------------------- */
-
-.hero-botones{
-
-opacity:0;
-
-transform:translateY(15px);
-
-animation:
-fadeUp
-.8s ease forwards;
-
-animation-delay:.9s;
-
-}
-
-
-/* ---------------------------------------------------------
-ANIMACIONES
---------------------------------------------------------- */
-
-@keyframes heroTitle{
-
-0%{
-
-opacity:0;
-
-transform:
-translateY(28px)
-scale(.97);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-}
-
-}
-
-
-@keyframes fadeUp{
-
-0%{
-
-opacity:0;
-
-transform:translateY(20px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-@keyframes fadeDown{
-
-0%{
-
-opacity:0;
-
-transform:translateY(-12px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-/* ---------------------------------------------------------
-BOTONES HERO
---------------------------------------------------------- */
-
-.hero-btn{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-
-.hero-btn::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-120%;
-
-width:70%;
-
-height:100%;
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.25),
-transparent
-);
-
-transform:skewX(-20deg);
-
-transition:.7s;
-
-}
-
-
-.hero-btn:hover::before{
-
-left:150%;
-
-}
-
-
-/* ---------------------------------------------------------
-LOGO
---------------------------------------------------------- */
-
-.logo-nav{
-
-transition:
-transform .35s ease,
-filter .35s ease;
-
-}
-
-
-.logo-nav:hover{
-
-transform:scale(1.04);
-
-filter:
-drop-shadow(
-0 0 15px
-rgba(200,157,56,.25)
-);
-
-}
-
-
-/* ---------------------------------------------------------
-CARDS
---------------------------------------------------------- */
-
-.card img{
-
-transition:
-transform .6s
-cubic-bezier(.2,.8,.2,1);
-
-}
-
-
-.card:hover img{
-
-transform:scale(1.07);
-
-}
-
-
-/* ---------------------------------------------------------
-BOTON AGREGAR
---------------------------------------------------------- */
-
-.agregar{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-
-.agregar::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-linear-gradient(
-110deg,
-transparent 20%,
-rgba(255,255,255,.22) 45%,
-transparent 70%
-);
-
-transform:translateX(-150%);
-
-transition:.65s;
-
-}
-
-
-.agregar:hover::after{
-
-transform:translateX(150%);
-
-}
-
-
-/* ---------------------------------------------------------
-BENEFICIOS
---------------------------------------------------------- */
-
-.beneficio{
-
-transition:
-transform .3s ease,
-background .3s ease;
-
-}
-
-
-.beneficio:hover{
-
-transform:translateY(-4px);
-
-background:#111;
-
-}
-
-
-/* ---------------------------------------------------------
-ICONO CARRITO
---------------------------------------------------------- */
-
-.carrito-nav{
-
-transition:
-transform .2s ease;
-
-}
-
-
-.carrito-nav:hover{
-
-transform:scale(1.12);
-
-}
-
-}
 </style>
 
 </head>
@@ -2247,19 +1371,13 @@ NAVBAR
 
 <header class="navbar">
 
-
 <div class="nav-left">
 
 <button
 class="nav-icon"
 onclick="
-document
-.getElementById('catalogo')
-.scrollIntoView({behavior:'smooth'});
-
-setTimeout(()=>{
-document.getElementById('buscar').focus();
-},500);
+document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
+setTimeout(()=>{document.getElementById('buscar').focus();},500);
 ">
 
 ⌕
@@ -2298,7 +1416,6 @@ class="carrito-numero">
 </div>
 
 </div>
-
 
 </header>
 
@@ -2352,32 +1469,22 @@ HERO
 
 <div class="hero-contenido">
 
-
 <div class="hero-mini">
-
 PERFUMES · FRAGANCIAS · DECANTS
-
 </div>
 
-
 <h1>
-
 Descubrí tu próxima fragancia
-
 </h1>
-
 
 <p>
 
 Perfumes árabes, diseñador, nicho y decants.
-Encontrá el aroma que va a convertirse
-en tu sello personal.
+Encontrá el aroma que va a convertirse en tu sello personal.
 
 </p>
 
-
 <div class="hero-botones">
-
 
 <a
 href="#catalogo"
@@ -2387,7 +1494,6 @@ EXPLORAR CATÁLOGO
 
 </a>
 
-
 <a
 href="https://wa.me/5493417830300"
 target="_blank"
@@ -2396,7 +1502,6 @@ class="hero-btn secundario">
 HABLAR POR WHATSAPP
 
 </a>
-
 
 </div>
 
@@ -2412,7 +1517,6 @@ BENEFICIOS
 <section
 class="beneficios"
 id="como-comprar">
-
 
 <div class="beneficio">
 
@@ -2464,6 +1568,128 @@ Enviá tu carrito completo en segundos.
 
 </div>
 
+</section>
+
+
+<!-- =====================================================
+MEDIOS DE PAGO
+===================================================== -->
+
+<section class="medios-pago">
+
+<div class="medios-pago-titulo">
+
+<small>
+FÁCIL · RÁPIDO · SEGURO
+</small>
+
+<h3>
+Pagá como quieras
+</h3>
+
+<p>
+Aceptamos todos los medios de pago
+</p>
+
+</div>
+
+
+<div class="medios-pago-opciones">
+
+
+<div class="medio-pago">
+
+<span>
+💵
+</span>
+
+<strong>
+Efectivo
+</strong>
+
+<small>
+10% OFF
+</small>
+
+</div>
+
+
+<div class="medio-pago">
+
+<span>
+🏦
+</span>
+
+<strong>
+Transferencia
+</strong>
+
+<small>
+10% OFF
+</small>
+
+</div>
+
+
+<div class="medio-pago">
+
+<span>
+💳
+</span>
+
+<strong>
+Débito
+</strong>
+
+<small>
+Tarjetas
+</small>
+
+</div>
+
+
+<div class="medio-pago">
+
+<span>
+💳
+</span>
+
+<strong>
+Crédito
+</strong>
+
+<small>
+Tarjetas
+</small>
+
+</div>
+
+
+<div class="medio-pago">
+
+<span>
+📱
+</span>
+
+<strong>
+Mercado Pago
+</strong>
+
+<small>
+Point
+</small>
+
+</div>
+
+
+</div>
+
+
+<div class="mercadopago-point">
+
+💳 Pagos con tarjeta procesados mediante Mercado Pago Point
+
+</div>
 
 </section>
 
@@ -2475,7 +1701,6 @@ CATALOGO
 <section
 class="catalogo"
 id="catalogo">
-
 
 <div class="catalogo-cabeza">
 
@@ -2499,9 +1724,7 @@ tu pedido directamente desde nuestra tienda.
 
 <div class="controles">
 
-
 <div class="modos">
-
 
 <button
 id="modoParticular"
@@ -2522,7 +1745,6 @@ onclick="cambiarModo('mayorista')">
 
 </button>
 
-
 </div>
 
 
@@ -2538,14 +1760,12 @@ placeholder="Buscar perfume, marca o producto...">
 
 </div>
 
-
 </div>
 
 
 <div id="productos"></div>
 
 <div id="paginacion"></div>
-
 
 </section>
 
@@ -2558,9 +1778,7 @@ CARRITO INFERIOR
 id="carritoBarra"
 class="carrito-barra">
 
-
 <div class="carrito-contenido">
-
 
 <div
 id="carritoInfo"
@@ -2572,7 +1790,6 @@ unidades
 
 </div>
 
-
 <button
 class="carrito-boton"
 onclick="abrirCarrito()">
@@ -2580,7 +1797,6 @@ onclick="abrirCarrito()">
 VER PEDIDO
 
 </button>
-
 
 </div>
 
@@ -2595,19 +1811,13 @@ MODAL CARRITO
 id="modalCarrito"
 class="modal">
 
-
 <div class="modal-contenido">
-
 
 <div class="modal-header">
 
-
 <h2 id="tituloCarrito">
-
 🛒 Tu pedido
-
 </h2>
-
 
 <button
 class="cerrar"
@@ -2617,14 +1827,12 @@ onclick="cerrarCarrito()">
 
 </button>
 
-
 </div>
 
 
 <div
 id="pagoSelector"
 class="pago-selector">
-
 
 <button
 id="pagoEfectivo"
@@ -2647,7 +1855,6 @@ onclick="cambiarPago('lista')">
 
 </button>
 
-
 </div>
 
 
@@ -2669,7 +1876,6 @@ onclick="enviarPedidoWhatsApp()">
 💬 ENVIAR PEDIDO POR WHATSAPP
 
 </button>
-
 
 </div>
 
@@ -2708,14 +1914,11 @@ CONFIGURACION
 const API=
 "https://script.google.com/macros/s/AKfycbzJOT5LsONysvKxWyMOA85lRiziPHke1b7dV0hDUe3xfS0isamBl_BDXJKw8iEjqtInMQ/exec";
 
-
 const WHATSAPP=
 "5493417830300";
 
-
 const MINIMO_MAYORISTA=
 10;
-
 
 const PRODUCTOS_POR_PAGINA=
 30;
@@ -2729,14 +1932,11 @@ let perfumes=[];
 
 let carrito=[];
 
-let modoActual=
-"particular";
+let modoActual="particular";
 
-let formaPago=
-"efectivo";
+let formaPago="efectivo";
 
-let paginaActual=
-1;
+let paginaActual=1;
 
 let productosFiltrados=[];
 
@@ -2824,36 +2024,25 @@ actualizarCarrito();
 
 }
 
-
-modoActual=
-modo;
-
+modoActual=modo;
 
 document
-.getElementById(
-"modoParticular"
-)
+.getElementById("modoParticular")
 .classList
 .toggle(
 "activo",
 modo==="particular"
 );
 
-
 document
-.getElementById(
-"modoMayorista"
-)
+.getElementById("modoMayorista")
 .classList
 .toggle(
 "activo",
 modo==="mayorista"
 );
 
-
-paginaActual=
-1;
-
+paginaActual=1;
 
 mostrarPagina();
 
@@ -2866,31 +2055,23 @@ FORMA DE PAGO
 
 function cambiarPago(tipo){
 
-formaPago=
-tipo;
-
+formaPago=tipo;
 
 document
-.getElementById(
-"pagoEfectivo"
-)
+.getElementById("pagoEfectivo")
 .classList
 .toggle(
 "activo",
 tipo==="efectivo"
 );
 
-
 document
-.getElementById(
-"pagoLista"
-)
+.getElementById("pagoLista")
 .classList
 .toggle(
 "activo",
 tipo==="lista"
 );
-
 
 renderCarrito();
 
@@ -2913,7 +2094,6 @@ document
 .toLowerCase()
 .trim();
 
-
 productosFiltrados=
 
 perfumes.filter(producto=>
@@ -2924,10 +2104,7 @@ perfumes.filter(producto=>
 
 );
 
-
-paginaActual=
-1;
-
+paginaActual=1;
 
 mostrarPagina();
 
@@ -2943,7 +2120,7 @@ filtrarProductos
 
 
 /* =========================================================
-PAGINA
+MOSTRAR PAGINA
 ========================================================= */
 
 function mostrarPagina(){
@@ -2953,12 +2130,10 @@ const inicio=
 (paginaActual-1) *
 PRODUCTOS_POR_PAGINA;
 
-
 const fin=
 
 inicio +
 PRODUCTOS_POR_PAGINA;
-
 
 mostrar(
 
@@ -2968,7 +2143,6 @@ fin
 )
 
 );
-
 
 mostrarPaginacion();
 
@@ -2986,7 +2160,6 @@ const texto=
 (stock || "")
 .toLowerCase();
 
-
 if(
 texto.includes("sin stock")
 ){
@@ -2994,7 +2167,6 @@ texto.includes("sin stock")
 return "sinstock";
 
 }
-
 
 if(
 texto.includes("disponible") &&
@@ -3004,7 +2176,6 @@ texto.includes("disponible") &&
 return "disponible";
 
 }
-
 
 return "apedido";
 
@@ -3039,10 +2210,7 @@ document
 "productos"
 );
 
-
-cont.innerHTML=
-"";
-
+cont.innerHTML="";
 
 if(
 lista.length===0
@@ -3071,13 +2239,11 @@ return;
 
 lista.forEach(producto=>{
 
-
 const claseStock=
 
 clasificarStock(
 producto.stock
 );
-
 
 const precioLista=
 
@@ -3085,12 +2251,10 @@ Number(
 producto.precio
 ) || 0;
 
-
 const precioEfectivo=
 
 precioLista *
 0.90;
-
 
 const precio10=
 
@@ -3098,13 +2262,11 @@ Number(
 producto.precioMayorista10
 ) || 0;
 
-
 const precio20=
 
 Number(
 producto.precioMayorista20
 ) || 0;
-
 
 const precio30=
 
@@ -3112,18 +2274,14 @@ Number(
 producto.precioMayorista30
 ) || 0;
 
-
 const formato={
 
 minimumFractionDigits:0,
-
 maximumFractionDigits:0
 
 };
 
-
-let precioHTML=
-"";
+let precioHTML="";
 
 
 /* =====================================================
@@ -3178,19 +2336,14 @@ MAYORISTA
 
 else{
 
-
 const total=
-
 totalUnidades();
-
 
 let precioMostrar=
 precio10;
 
-
 let titulo=
 "Precio mayorista 10+";
-
 
 if(
 total>=30
@@ -3215,7 +2368,6 @@ titulo=
 "Precio mayorista 20+";
 
 }
-
 
 precioHTML=`
 
@@ -3265,7 +2417,7 @@ ${precio30.toLocaleString("es-AR")}
 
 
 /* =====================================================
-CANTIDAD / BOTON
+BOTON
 ===================================================== */
 
 const cantidadActual=
@@ -3274,10 +2426,7 @@ obtenerCantidad(
 producto.perfume
 );
 
-
-let botonHTML=
-"";
-
+let botonHTML="";
 
 if(
 productoNoVendible(
@@ -3299,7 +2448,6 @@ disabled>
 
 }
 
-
 else if(
 cantidadActual>0
 ){
@@ -3307,7 +2455,6 @@ cantidadActual>0
 botonHTML=`
 
 <div class="cantidad">
-
 
 <button
 onclick="
@@ -3321,13 +2468,9 @@ cambiarCantidad(
 
 </button>
 
-
 <span>
-
 ${cantidadActual}
-
 </span>
-
 
 <button
 onclick="
@@ -3341,13 +2484,11 @@ cambiarCantidad(
 
 </button>
 
-
 </div>
 
 `;
 
 }
-
 
 else{
 
@@ -3380,7 +2521,6 @@ cont.innerHTML+=`
 
 
 <div class="imagen-producto">
-
 
 <img
 
@@ -3424,12 +2564,10 @@ producto.stock || ""
 
 </div>
 
-
 </div>
 
 
 <div class="info">
-
 
 <div class="nombre">
 
@@ -3441,15 +2579,11 @@ producto.perfume
 
 </div>
 
-
 ${precioHTML}
-
 
 ${botonHTML}
 
-
 </div>
-
 
 </div>
 
@@ -3473,7 +2607,6 @@ document
 "paginacion"
 );
 
-
 const totalPaginas=
 
 Math.ceil(
@@ -3483,7 +2616,6 @@ productosFiltrados.length /
 PRODUCTOS_POR_PAGINA
 
 );
-
 
 if(
 totalPaginas<=1
@@ -3495,11 +2627,9 @@ return;
 
 }
 
-
 let html=
 
 `<div class="paginacion">`;
-
 
 html+=`
 
@@ -3526,7 +2656,6 @@ paginaActual===1
 </button>
 
 `;
-
 
 for(
 let i=1;
@@ -3575,7 +2704,6 @@ continue;
 
 }
 
-
 html+=`
 
 <button
@@ -3603,7 +2731,6 @@ ${i}
 
 }
 
-
 html+=`
 
 <button
@@ -3629,7 +2756,6 @@ paginaActual===totalPaginas
 </button>
 
 `;
-
 
 html+=
 `</div>`;
@@ -3691,7 +2817,6 @@ PRODUCTOS_POR_PAGINA
 
 );
 
-
 if(
 
 pagina<1 ||
@@ -3704,13 +2829,10 @@ return;
 
 }
 
-
 paginaActual=
 pagina;
 
-
 mostrarPagina();
-
 
 document
 .getElementById(
@@ -3726,7 +2848,7 @@ behavior:"smooth"
 
 
 /* =========================================================
-OBTENER CANTIDAD
+CANTIDAD
 ========================================================= */
 
 function obtenerCantidad(perfume){
@@ -3742,7 +2864,6 @@ perfume
 
 );
 
-
 return item
 ?
 item.cantidad
@@ -3753,7 +2874,7 @@ item.cantidad
 
 
 /* =========================================================
-AGREGAR PRODUCTO
+AGREGAR
 ========================================================= */
 
 function agregarProducto(perfume){
@@ -3769,7 +2890,6 @@ perfume
 
 );
 
-
 if(
 
 !producto ||
@@ -3784,7 +2904,6 @@ return;
 
 }
 
-
 const existente=
 
 carrito.find(
@@ -3796,7 +2915,6 @@ perfume
 
 );
 
-
 if(existente){
 
 existente.cantidad++;
@@ -3804,7 +2922,6 @@ existente.cantidad++;
 }
 
 else{
-
 
 carrito.push({
 
@@ -3838,7 +2955,6 @@ producto.precioMayorista30
 
 }
 
-
 actualizarCarrito();
 
 mostrarPagina();
@@ -3866,7 +2982,6 @@ perfume
 
 );
 
-
 if(!item){
 
 if(cambio>0){
@@ -3881,10 +2996,8 @@ return;
 
 }
 
-
 item.cantidad+=
 cambio;
-
 
 if(
 item.cantidad<=0
@@ -3902,7 +3015,6 @@ perfume
 );
 
 }
-
 
 actualizarCarrito();
 
@@ -3940,10 +3052,6 @@ item,
 total
 ){
 
-/*
-MAYORISTA
-*/
-
 if(
 modoActual==="mayorista"
 ){
@@ -3976,17 +3084,11 @@ item.precioMayorista10
 
 }
 
-
-/*
-PARTICULAR
-*/
-
 const precioLista=
 
 Number(
 item.precio
 ) || 0;
-
 
 return formaPago==="efectivo"
 ?
@@ -3998,7 +3100,7 @@ precioLista;
 
 
 /* =========================================================
-TOTAL DEL CARRITO
+TOTAL CARRITO
 ========================================================= */
 
 function obtenerTotalCarrito(){
@@ -4006,7 +3108,6 @@ function obtenerTotalCarrito(){
 const unidades=
 
 totalUnidades();
-
 
 return carrito.reduce(
 
@@ -4018,7 +3119,6 @@ obtenerPrecioItem(
 item,
 unidades
 );
-
 
 return suma +
 (
@@ -4045,14 +3145,12 @@ const unidades=
 
 totalUnidades();
 
-
 const barra=
 
 document
 .getElementById(
 "carritoBarra"
 );
-
 
 const info=
 
@@ -4061,7 +3159,6 @@ document
 "carritoInfo"
 );
 
-
 const numero=
 
 document
@@ -4069,10 +3166,8 @@ document
 "carritoNumero"
 );
 
-
 numero.textContent=
 unidades;
-
 
 if(
 unidades>0
@@ -4081,11 +3176,9 @@ unidades>0
 barra.style.display=
 "block";
 
-
 const total=
 
 obtenerTotalCarrito();
-
 
 info.innerHTML=`
 
@@ -4111,14 +3204,12 @@ Math.round(total)
 
 }
 
-
 else{
 
 barra.style.display=
 "none";
 
 }
-
 
 if(
 
@@ -4153,7 +3244,6 @@ carrito.length===0
 return;
 
 }
-
 
 document
 .getElementById(
@@ -4202,7 +3292,7 @@ renderCarrito();
 
 
 /* =========================================================
-CERRAR CARRITO
+CERRAR
 ========================================================= */
 
 function cerrarCarrito(){
@@ -4232,7 +3322,6 @@ document
 "listaCarrito"
 );
 
-
 const resumen=
 
 document
@@ -4240,14 +3329,12 @@ document
 "resumenCarrito"
 );
 
-
 const boton=
 
 document
 .getElementById(
 "btnWhatsApp"
 );
-
 
 if(
 carrito.length===0
@@ -4290,7 +3377,6 @@ lista.innerHTML=
 
 
 carrito.forEach(item=>{
-
 
 const precio=
 
@@ -4379,9 +3465,7 @@ cambiarCantidad(
 
 
 <span>
-
 ${item.cantidad}
-
 </span>
 
 
@@ -4412,8 +3496,6 @@ let mensajeExtra=
 "";
 
 
-/* MAYORISTA */
-
 if(
 modoActual==="mayorista"
 ){
@@ -4441,7 +3523,6 @@ el mínimo mayorista.
 
 }
 
-
 else if(
 total<20
 ){
@@ -4467,7 +3548,6 @@ unidades para precio 20+.
 `;
 
 }
-
 
 else if(
 total<30
@@ -4495,7 +3575,6 @@ unidades para precio 30+.
 
 }
 
-
 else{
 
 mensajeExtra=`
@@ -4518,9 +3597,6 @@ Nivel 30+ unidades.
 }
 
 }
-
-
-/* PARTICULAR */
 
 else{
 
@@ -4601,7 +3677,7 @@ MINIMO_MAYORISTA;
 
 
 /* =========================================================
-ENVIAR WHATSAPP
+WHATSAPP
 ========================================================= */
 
 function enviarPedidoWhatsApp(){
@@ -4645,14 +3721,8 @@ return;
 let totalPedido=
 0;
 
+let mensaje="";
 
-let mensaje=
-"";
-
-
-/* =====================================================
-MAYORISTA
-===================================================== */
 
 if(
 modoActual==="mayorista"
@@ -4672,11 +3742,6 @@ DETALLE DEL PEDIDO
 `;
 
 }
-
-
-/* =====================================================
-PARTICULAR
-===================================================== */
 
 else{
 
@@ -4698,7 +3763,7 @@ formaPago==="efectivo"
 
 :
 
-"Precio de lista"
+"Precio de lista / Tarjeta"
 }
 
 ━━━━━━━━━━━━━━━
@@ -4709,12 +3774,7 @@ DETALLE DEL PEDIDO
 }
 
 
-/* =====================================================
-PRODUCTOS
-===================================================== */
-
 carrito.forEach(item=>{
-
 
 const precio=
 
@@ -4723,16 +3783,13 @@ item,
 total
 );
 
-
 const subtotal=
 
 precio *
 item.cantidad;
 
-
 totalPedido+=
 subtotal;
-
 
 mensaje+=`
 
@@ -4751,17 +3808,12 @@ $${Math.round(subtotal).toLocaleString("es-AR")}
 });
 
 
-/* =====================================================
-FINAL MAYORISTA
-===================================================== */
-
 if(
 modoActual==="mayorista"
 ){
 
 let nivel=
 "10+";
-
 
 if(
 total>=30
@@ -4780,7 +3832,6 @@ nivel=
 "20+";
 
 }
-
 
 mensaje+=`
 
@@ -4803,11 +3854,6 @@ Gracias 🙌
 `;
 
 }
-
-
-/* =====================================================
-FINAL PARTICULAR
-===================================================== */
 
 else{
 
@@ -4852,30 +3898,11 @@ function escapeHTML(text){
 
 return String(text)
 
-.replace(
-/&/g,
-"&amp;"
-)
-
-.replace(
-/</g,
-"&lt;"
-)
-
-.replace(
-/>/g,
-"&gt;"
-)
-
-.replace(
-/"/g,
-"&quot;"
-)
-
-.replace(
-/'/g,
-"&#039;"
-);
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
@@ -4888,26 +3915,15 @@ function escapeAttr(text){
 
 return String(text)
 
-.replace(
-/\\/g,
-"\\\\"
-)
-
-.replace(
-/'/g,
-"\\'"
-)
-
-.replace(
-/\r?\n/g,
-" "
-);
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'")
+.replace(/\r?\n/g," ");
 
 }
 
 
 /* =========================================================
-CERRAR MODAL AL TOCAR AFUERA
+CERRAR MODAL AFUERA
 ========================================================= */
 
 document
@@ -4931,7 +3947,7 @@ cerrarCarrito();
 
 
 /* =========================================================
-TECLA ESC
+ESC
 ========================================================= */
 
 document
@@ -4949,7 +3965,6 @@ cerrarCarrito();
 
 }
 );
-
 
 </script>
 
