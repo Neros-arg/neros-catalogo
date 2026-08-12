@@ -1855,7 +1855,383 @@ font-size:34px;
 }
 
 }
+/* =========================================================
+ANIMACIONES NERÓS
+========================================================= */
 
+/* Evita movimientos bruscos */
+@media (prefers-reduced-motion: no-preference) {
+
+
+/* ---------------------------------------------------------
+HERO - MOVIMIENTO DE FONDO
+--------------------------------------------------------- */
+
+.hero{
+
+overflow:hidden;
+
+/*
+El fondo se mueve lentamente
+sin afectar el contenido
+*/
+
+animation:
+heroBackgroundMove
+18s ease-in-out infinite alternate;
+
+}
+
+
+/* Movimiento lento del fondo */
+
+@keyframes heroBackgroundMove{
+
+0%{
+
+background-size:100% auto;
+
+background-position:center 48%;
+
+}
+
+100%{
+
+background-size:108% auto;
+
+background-position:center 52%;
+
+}
+
+}
+
+
+/* ---------------------------------------------------------
+TEXTO SUPERIOR
+--------------------------------------------------------- */
+
+.hero-mini{
+
+opacity:0;
+
+animation:
+fadeDown
+.8s ease forwards;
+
+animation-delay:.15s;
+
+}
+
+
+/* ---------------------------------------------------------
+TITULO PRINCIPAL
+--------------------------------------------------------- */
+
+.hero h1{
+
+opacity:0;
+
+transform:translateY(25px);
+
+animation:
+heroTitle
+1s cubic-bezier(.2,.8,.2,1) forwards;
+
+animation-delay:.35s;
+
+}
+
+
+/* ---------------------------------------------------------
+DESCRIPCION
+--------------------------------------------------------- */
+
+.hero p{
+
+opacity:0;
+
+transform:translateY(20px);
+
+animation:
+fadeUp
+.9s ease forwards;
+
+animation-delay:.65s;
+
+}
+
+
+/* ---------------------------------------------------------
+BOTONES
+--------------------------------------------------------- */
+
+.hero-botones{
+
+opacity:0;
+
+transform:translateY(15px);
+
+animation:
+fadeUp
+.8s ease forwards;
+
+animation-delay:.9s;
+
+}
+
+
+/* ---------------------------------------------------------
+ANIMACIONES
+--------------------------------------------------------- */
+
+@keyframes heroTitle{
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(28px)
+scale(.97);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+}
+
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+@keyframes fadeDown{
+
+0%{
+
+opacity:0;
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ---------------------------------------------------------
+BOTONES HERO
+--------------------------------------------------------- */
+
+.hero-btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.hero-btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:70%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+
+transform:skewX(-20deg);
+
+transition:.7s;
+
+}
+
+
+.hero-btn:hover::before{
+
+left:150%;
+
+}
+
+
+/* ---------------------------------------------------------
+LOGO
+--------------------------------------------------------- */
+
+.logo-nav{
+
+transition:
+transform .35s ease,
+filter .35s ease;
+
+}
+
+
+.logo-nav:hover{
+
+transform:scale(1.04);
+
+filter:
+drop-shadow(
+0 0 15px
+rgba(200,157,56,.25)
+);
+
+}
+
+
+/* ---------------------------------------------------------
+CARDS
+--------------------------------------------------------- */
+
+.card img{
+
+transition:
+transform .6s
+cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.card:hover img{
+
+transform:scale(1.07);
+
+}
+
+
+/* ---------------------------------------------------------
+BOTON AGREGAR
+--------------------------------------------------------- */
+
+.agregar{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.agregar::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+110deg,
+transparent 20%,
+rgba(255,255,255,.22) 45%,
+transparent 70%
+);
+
+transform:translateX(-150%);
+
+transition:.65s;
+
+}
+
+
+.agregar:hover::after{
+
+transform:translateX(150%);
+
+}
+
+
+/* ---------------------------------------------------------
+BENEFICIOS
+--------------------------------------------------------- */
+
+.beneficio{
+
+transition:
+transform .3s ease,
+background .3s ease;
+
+}
+
+
+.beneficio:hover{
+
+transform:translateY(-4px);
+
+background:#111;
+
+}
+
+
+/* ---------------------------------------------------------
+ICONO CARRITO
+--------------------------------------------------------- */
+
+.carrito-nav{
+
+transition:
+transform .2s ease;
+
+}
+
+
+.carrito-nav:hover{
+
+transform:scale(1.12);
+
+}
+
+}
 </style>
 
 </head>
