@@ -71,8 +71,27 @@ NAVBAR
 
 .navbar{
 
-height:92px;
+height:105px;
 
+display:grid;
+
+grid-template-columns:1fr auto 1fr;
+
+align-items:center;
+
+padding:0 55px;
+
+background:rgba(5,5,5,.96);
+
+border-bottom:1px solid #171717;
+
+position:relative;
+
+z-index:100;
+
+overflow:hidden;
+
+}
 display:grid;
 
 grid-template-columns:1fr auto 1fr;
@@ -119,15 +138,29 @@ border:none;
 
 width:145px;
 
+max-width:100%;
+
+max-height:62px;
+
+height:auto;
+
+object-fit:contain;
+
 display:block;
 
 }
 
 .nav-center{
 
+height:100%;
+
 display:flex;
 
+align-items:center;
+
 justify-content:center;
+
+overflow:hidden;
 
 }
 
@@ -1486,7 +1519,7 @@ padding:0 25px;
 
 .navbar{
 
-height:72px;
+height:82px;
 
 padding:0 15px;
 
@@ -1497,6 +1530,10 @@ grid-template-columns:1fr auto 1fr;
 .logo-nav{
 
 width:115px;
+
+max-height:50px;
+
+object-fit:contain;
 
 }
 
