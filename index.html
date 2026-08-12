@@ -3212,47 +3212,26 @@ item.cantidad,
 PRECIO ITEM
 ========================================================= */
 
-function obtenerPrecioItem(
-item,
-total
-){
+function obtenerPrecioItem(item,total){
 
-if(
-modoActual==="mayorista"
-){
+  if(modoActual==="mayorista"){
 
-if(total>=30){
+    if(total>=30){
+      return Number(item.precioMayorista30) || 0;
+    }
 
-return item
-.precioMayorista30;
+    if(total>=20){
+      return Number(item.precioMayorista20) || 0;
+    }
 
-}
+    return Number(item.precioMayorista10) || 0;
+  }
 
-if(total>=20){
+  const precioLista = Number(item.precio) || 0;
 
-return item
-.precioMayorista20;
-
-}
-
-return item
-.precioMayorista10;
-
-}
-
-
-return
-
-formaPago==="efectivo"
-
-?
-
-item.precio * 0.90
-
-:
-
-item.precio;
-
+  return formaPago==="efectivo"
+    ? precioLista * 0.90
+    : precioLista;
 }
 
 
