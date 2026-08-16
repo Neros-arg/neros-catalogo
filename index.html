@@ -519,18 +519,41 @@ BOTONES
 }
 
 .hero-btn.principal{
-  background:var(--dorado);
-  color:#111;
+  background:
+    linear-gradient(
+      135deg,
+      #f2c95f 0%,
+      #d9a72e 45%,
+      #f0c45a 100%
+    );
 
-  border:1px solid var(--dorado);
+  color:#090909;
+
+  border:1px solid #f3d27b;
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.38);
+    0 10px 30px rgba(0,0,0,.45),
+    0 0 22px rgba(218,168,46,.28),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.25);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .hero-btn.principal:hover{
-  background:var(--dorado-claro);
-  transform:translateY(-2px) scale(1.02);
+  transform:translateY(-3px) scale(1.035);
+
+  filter:brightness(1.12);
+
+  box-shadow:
+    0 15px 38px rgba(0,0,0,.50),
+    0 0 32px rgba(232,184,62,.48),
+    inset 0 1px 0 rgba(255,255,255,.45);
 }
 
 .hero-btn.secundario{
