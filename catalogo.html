@@ -34,7 +34,72 @@ background:var(--negro);
 color:#fff;
 font-family:Arial,Helvetica,sans-serif;
 overflow-x:hidden;
+position:relative;
 }
+
+/* ================= FONDO CATÁLOGO / PARALLAX ================= */
+
+body::before{
+content:"";
+position:fixed;
+inset:-6%;
+z-index:-3;
+
+background-image:url("fondo-catalogo.png");
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
+
+transform:translateY(calc(var(--parallax-y, 0px) * -1)) scale(1.10);
+will-change:transform;
+}
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+z-index:-2;
+
+background:
+linear-gradient(
+180deg,
+rgba(8,8,8,.84) 0%,
+rgba(8,8,8,.76) 30%,
+rgba(8,8,8,.80) 65%,
+rgba(8,8,8,.88) 100%
+);
+
+pointer-events:none;
+}
+
+/* Asegura que las secciones principales queden por encima */
+.navbar,
+.header-search,
+.category-rail,
+.catalogo-page,
+.footer,
+.carrito-barra,
+.modal,
+.producto-modal,
+.floating-wa,
+.side-menu,
+.side-overlay{
+position:relative;
+z-index:1;
+}
+
+.navbar,
+.category-rail{
+z-index:120;
+}
+
+.side-overlay{z-index:3990;}
+.side-menu{z-index:4000;}
+.producto-modal{z-index:5000;}
+.modal{z-index:3000;}
+.carrito-barra{z-index:1000;}
+.floating-wa{z-index:900;}
+
 
 button,input{font-family:inherit;}
 
@@ -574,6 +639,22 @@ color:#777;
 max-width:1600px;
 margin:auto;
 padding:60px 24px 100px;
+position:relative;
+}
+
+.catalogo::before{
+content:"";
+position:absolute;
+inset:0;
+z-index:-1;
+background:linear-gradient(
+180deg,
+rgba(8,8,8,.28),
+rgba(8,8,8,.10) 32%,
+rgba(8,8,8,.18)
+);
+border-radius:28px;
+pointer-events:none;
 }
 
 .catalogo-cabeza{
@@ -1075,7 +1156,8 @@ box-shadow:0 10px 30px rgba(0,0,0,.45);
 padding:50px 20px 100px;
 text-align:center;
 border-top:1px solid #222;
-background:#050505;
+background:rgba(5,5,5,.88);
+backdrop-filter:blur(8px);
 }
 
 .footer img{
@@ -1453,20 +1535,18 @@ text-decoration:none;
 
 .catalogo-page{
 min-height:70vh;
+background:transparent;
 }
 
 .pedido-card-aviso{
-    margin-top:10px;
-    padding:10px 12px;
-    border:1px solid rgba(200,157,56,.38);
-    background:rgba(200,157,56,.10);
-    border-radius:10px;
-
-    font-size:11px;
-    line-height:1.45;
-    font-weight:700;
-
-    color:#e3bd63;
+margin-top:8px;
+padding:8px 9px;
+border:1px solid rgba(200,157,56,.28);
+background:rgba(200,157,56,.07);
+border-radius:9px;
+font-size:9px;
+line-height:1.45;
+color:#d6c08b;
 }
 
 .pedido-detalle-aviso{
@@ -1520,6 +1600,14 @@ grid-template-columns:repeat(3,1fr);
 }
 
 @media(max-width:700px){
+
+body::before{
+inset:-10%;
+background-position:center center;
+transform:translateY(calc(var(--parallax-y, 0px) * -0.55)) scale(1.16);
+}
+
+
 
 .promo-strip{height:30px;}
 
@@ -5256,6 +5344,50 @@ cerrarProducto();
 
 }
 );
+
+
+/* =========================================================
+PARALLAX FONDO CATÁLOGO
+========================================================= */
+
+let parallaxTicking=false;
+
+function actualizarParallaxFondo(){
+
+  if(parallaxTicking){
+    return;
+  }
+
+  parallaxTicking=true;
+
+  requestAnimationFrame(()=>{
+
+    const y=window.scrollY || 0;
+
+    /*
+    Movimiento suave:
+    el fondo se desplaza más lento que el contenido.
+    */
+    const desplazamiento=Math.min(y * 0.08, 120);
+
+    document.documentElement.style.setProperty(
+      "--parallax-y",
+      desplazamiento + "px"
+    );
+
+    parallaxTicking=false;
+
+  });
+
+}
+
+window.addEventListener(
+  "scroll",
+  actualizarParallaxFondo,
+  {passive:true}
+);
+
+actualizarParallaxFondo();
 
 </script>
 
