@@ -89,8 +89,8 @@ HEADER
 .navbar-contenido{
   max-width:1600px;
   margin:auto;
-  height:74px;
-  padding:0 24px;
+  height:104px;
+  padding:0 32px;
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
@@ -123,31 +123,31 @@ HEADER
   transform:translateY(-2px);
 }
 
+.logo-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .logo-nav img{
   display:block;
-  width:145px;
-  max-height:55px;
+  width:230px;
+  max-height:88px;
   object-fit:contain;
+  transform:scale(1.35);
+  transform-origin:center;
+  transition:transform .25s ease,filter .25s ease;
 }
 
-.menu{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:23px;
+.logo-nav:hover img{
+  transform:scale(1.42);
+  filter:drop-shadow(0 0 16px rgba(200,157,56,.20));
 }
 
-.menu a{
-  color:#aaa;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.6px;
-  transition:.2s;
+.nav-right-spacer{
+  min-width:42px;
 }
 
-.menu a:hover{
-  color:var(--dorado-claro);
-}
 
 /* =====================================================
 MENÚ LATERAL
@@ -279,7 +279,7 @@ HERO / FLASHER
       rgba(0,0,0,.62),
       rgba(0,0,0,.34)
     ),
-    url("fondo.jpg");
+    url("fondo.png");
 
   background-size:cover;
   background-position:center;
@@ -310,6 +310,8 @@ HERO / FLASHER
   inset:0;
   display:flex;
   align-items:center;
+  justify-content:center;
+  text-align:center;
 
   opacity:0;
   transform:scale(1.02);
@@ -332,10 +334,11 @@ HERO / FLASHER
   z-index:2;
 
   width:100%;
-  max-width:1600px;
+  max-width:1100px;
 
   margin:auto;
-  padding:70px 7%;
+  padding:80px 28px 105px;
+  text-align:center;
 }
 
 .hero-mini{
@@ -361,22 +364,23 @@ HERO / FLASHER
   line-height:.96;
   letter-spacing:-2px;
 
-  margin-bottom:25px;
+  margin:0 auto 25px;
 }
 
 .hero p{
-  max-width:610px;
+  max-width:650px;
 
   color:#bbb;
 
   font-size:15px;
   line-height:1.7;
 
-  margin-bottom:32px;
+  margin:0 auto 32px;
 }
 
 .hero-botones{
   display:flex;
+  justify-content:center;
   gap:12px;
   flex-wrap:wrap;
 }
@@ -962,12 +966,18 @@ RESPONSIVE
   }
 
   .navbar-contenido{
-    height:57px;
-    padding:0 12px;
+    height:82px;
+    padding:0 14px;
   }
 
   .logo-nav img{
-    width:105px;
+    width:165px;
+    max-height:68px;
+    transform:scale(1.22);
+  }
+
+  .logo-nav:hover img{
+    transform:scale(1.22);
   }
 
   .nav-icon{
@@ -977,12 +987,13 @@ RESPONSIVE
 
   .hero{
     min-height:
-      calc(100vh - 87px);
+      calc(100vh - 112px);
   }
 
   .hero-contenido{
     padding:
-      50px 22px 80px;
+      56px 20px 92px;
+    text-align:center;
   }
 
   .hero h1{
@@ -1228,34 +1239,7 @@ HEADER
       alt="NERÓS">
 
     </a>
-
-    <nav class="menu">
-
-      <a href="index.html">
-        INICIO
-      </a>
-
-      <a href="catalogo.html">
-        PERFUMES
-      </a>
-
-      <a href="catalogo.html?filtro=pedido">
-        A PEDIDO
-      </a>
-
-      <a href="catalogo.html?modo=mayorista">
-        MAYORISTA
-      </a>
-
-      <a
-      href="https://wa.me/5493417830300"
-      target="_blank">
-
-        CONTACTO
-
-      </a>
-
-    </nav>
+    <div class="nav-right-spacer" aria-hidden="true"></div>
 
   </div>
 
@@ -1275,7 +1259,7 @@ FLASHER
 
       <div class="hero-mini">
 
-        NERÓS · PERFUMERÍA
+        BIENVENIDO A NERÓS
 
       </div>
 
@@ -1288,9 +1272,9 @@ FLASHER
 
       <p>
 
-        Árabes, diseñador, nicho y decants.
-        Encontrá esa fragancia que habla por vos
-        y comprá desde nuestro catálogo.
+        Descubrí perfumes árabes, de diseñador, nicho y decants.
+        Encontrá una fragancia que te represente y hacé de tu aroma
+        una parte de tu identidad.
 
       </p>
 
@@ -1300,7 +1284,7 @@ FLASHER
         href="catalogo.html"
         class="hero-btn principal">
 
-          VER CATÁLOGO
+          ENTRAR A NERÓS
 
         </a>
 
@@ -1309,7 +1293,7 @@ FLASHER
         target="_blank"
         class="hero-btn secundario">
 
-          PEDIR ASESORAMIENTO
+          HABLAR CON NOSOTROS
 
         </a>
 
