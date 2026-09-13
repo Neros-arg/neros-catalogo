@@ -5871,154 +5871,11 @@ CARRITO — BENEFICIO TRANSFERENCIA / EFECTIVO DESTACADO
   .card-notas-hover{display:none!important;}
 }
 
-
-/* =========================================================
-   PRELOADER NERÓS
-   ========================================================= */
-
-#nerosPreloader{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  background:#050505;
-  opacity:1;
-  visibility:visible;
-  transition:opacity .65s ease,visibility .65s ease;
-}
-
-#nerosPreloader.oculto{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-.preloader-logo{
-  width:min(180px,42vw);
-  max-height:125px;
-  object-fit:contain;
-  display:block;
-  opacity:0;
-  transform:translateY(10px) scale(.94);
-  animation:nerosLoaderLogo 1.05s cubic-bezier(.2,.8,.2,1) .08s forwards;
-  filter:drop-shadow(0 0 18px rgba(200,157,56,.08));
-}
-
-.preloader-linea{
-  width:min(250px,55vw);
-  height:1px;
-  margin-top:58px;
-  position:relative;
-  overflow:hidden;
-  background:rgba(200,157,56,.18);
-}
-
-.preloader-linea::after{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,transparent,#c89d38,#e3bd63,#c89d38,transparent);
-  box-shadow:0 0 12px rgba(200,157,56,.22);
-  animation:nerosLoaderLinea 1.55s cubic-bezier(.4,0,.2,1) .18s forwards;
-}
-
-.preloader-texto{
-  margin-top:15px;
-  color:#5e5e5e;
-  font-size:8px;
-  font-weight:800;
-  letter-spacing:3.4px;
-  text-transform:uppercase;
-  opacity:0;
-  animation:nerosLoaderTexto .7s ease .38s forwards,nerosLoaderPulso 1.5s ease-in-out 1.05s infinite;
-}
-
-@keyframes nerosLoaderLogo{
-  from{
-    opacity:0;
-    transform:translateY(10px) scale(.94);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-@keyframes nerosLoaderLinea{
-  from{width:0;opacity:.2;}
-  to{width:100%;opacity:1;}
-}
-
-@keyframes nerosLoaderTexto{
-  from{opacity:0;transform:translateY(4px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes nerosLoaderPulso{
-  0%,100%{opacity:.42;}
-  50%{opacity:.95;}
-}
-
-@media(max-width:600px){
-  .preloader-logo{
-    width:min(155px,48vw);
-  }
-
-  .preloader-linea{
-    margin-top:48px;
-    width:min(220px,58vw);
-  }
-
-  .preloader-texto{
-    font-size:7px;
-    letter-spacing:3px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  #nerosPreloader,
-  .preloader-logo,
-  .preloader-linea::after,
-  .preloader-texto{
-    animation:none !important;
-  }
-
-  .preloader-logo,
-  .preloader-texto{
-    opacity:1;
-    transform:none;
-  }
-
-  .preloader-linea::after{
-    width:100%;
-  }
-}
-
 </style>
 
 </head>
 
 <body>
-
-<!-- =====================================================
-     PRELOADER NERÓS
-     ===================================================== -->
-<div id="nerosPreloader" aria-label="Cargando catálogo">
-  <img
-    class="preloader-logo"
-    src="nerosfrase.png"
-    alt="NERÓS"
-    onerror="this.style.display='none';">
-  <div class="preloader-linea" aria-hidden="true"></div>
-  <div class="preloader-texto">CARGANDO CATÁLOGO</div>
-</div>
-
 
 <div class="promo-strip">
 
@@ -7096,41 +6953,6 @@ let filtroTester=
 let filtroPrecioMax=null;
 let precioMaximoCatalogo=0;
 
-
-/* =========================================================
-   PRELOADER
-   ========================================================= */
-
-const inicioPreloader = performance.now();
-
-function ocultarPreloader(minimo=1050){
-
-  const preloader=
-  document.getElementById("nerosPreloader");
-
-  if(!preloader){
-    return;
-  }
-
-  const transcurrido=
-  performance.now() - inicioPreloader;
-
-  const espera=
-  Math.max(0,minimo-transcurrido);
-
-  setTimeout(()=>{
-
-    preloader.classList.add("oculto");
-
-    setTimeout(()=>{
-      preloader.remove();
-    },700);
-
-  },espera);
-
-}
-
-
 /* =========================================================
 API
 ========================================================= */
@@ -7164,8 +6986,6 @@ throw new Error(
 
 perfumes=data;
 
-ocultarPreloader(1050);
-
 calcularPrecioMaximoCatalogo();
 actualizarFiltroPrecioUI();
 aplicarFiltrosCatalogo();
@@ -7175,8 +6995,6 @@ aplicarFiltrosCatalogo();
 .catch(error=>{
 
 console.error(error);
-
-ocultarPreloader(850);
 
 document
 .getElementById("productos")
@@ -7838,15 +7656,6 @@ input ? input.value : ""
 
 productosFiltrados=
 perfumes.filter(producto=>{
-
-/*
-   Los productos marcados como "sin stock" o "agotado"
-   no se muestran nunca en el catálogo.
-   "Disponible por pedido" sí continúa visible.
-*/
-if(!stockDisponible(producto)){
-return false;
-}
 
 /* Testers:
    particular = ocultos
